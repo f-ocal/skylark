@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Trial</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+  <script src="http://code.jquery.com/jquery-1.12.0.min.js"></script>
+</head>
+<body>
+
+<button id="button"></button>
+<%= yield %>
+
+</body>
+</html>
