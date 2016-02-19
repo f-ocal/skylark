@@ -8,3 +8,9 @@
 <br>
 <%= link_to 'Log Out', destroy_user_session_path %>
 <br>
+<br>
+<br>
+<h3>This is where flash messages appear:</h3>
+<% flash.each do |name, msg| %>
+  <%= content_tag :div, msg, class: name %>
+<% end %>
