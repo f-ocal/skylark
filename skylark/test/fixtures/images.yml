@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  tileset: MyString
+  date_taken: 2016-02-19
+  title: MyString
+  description: MyText
+  camera_type: MyString
+
+two:
+  tileset: MyString
+  date_taken: 2016-02-19
+  title: MyString
+  description: MyText
+  camera_type: MyString
