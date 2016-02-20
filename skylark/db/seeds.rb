@@ -20,26 +20,35 @@ user2 = User.new(
   password: '12345678')
 user2.save
 
-5.times do
-  date = "2016-" + rand(1..12).to_s + "-" + rand(1..28).to_s
+# 5.times do
+#   date = "2016-" + rand(1..12).to_s + "-" + rand(1..28).to_s
+#   Image.create(
+#     user_id: 1,
+#     title: Faker::Hacker.adjective + Faker::Hacker.noun,
+#     tileset: "whoosawhatsits2245624gfg",
+#     date_taken: date,
+#     description: Faker::Lorem.paragraph,
+#     camera_type: Faker::Hacker.abbreviation
+#     )
+# end
+
+# 5.times do
+#   date = "2016-" + rand(1..12).to_s + "-" + rand(1..28).to_s
+#   Image.create(
+#     user_id: 2,
+#     title: Faker::Hacker.adjective + Faker::Hacker.noun,
+#     tileset: "whargabrlefrabblebab54624",
+#     date_taken: date,
+#     description: Faker::Lorem.paragraph,
+#     camera_type: Faker::Hacker.abbreviation
+#     )
+# end
+
   Image.create(
     user_id: 1,
-    title: Faker::Hacker.adjective + Faker::Hacker.noun,
+    title:
     tileset: "whoosawhatsits2245624gfg",
     date_taken: date,
     description: Faker::Lorem.paragraph,
     camera_type: Faker::Hacker.abbreviation
     )
-end
-
-5.times do
-  date = "2016-" + rand(1..12).to_s + "-" + rand(1..28).to_s
-  Image.create(
-    user_id: 2,
-    title: Faker::Hacker.adjective + Faker::Hacker.noun,
-    tileset: "whargabrlefrabblebab54624",
-    date_taken: date,
-    description: Faker::Lorem.paragraph,
-    camera_type: Faker::Hacker.abbreviation
-    )
-end

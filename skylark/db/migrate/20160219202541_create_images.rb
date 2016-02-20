@@ -5,6 +5,8 @@ class CreateImages < ActiveRecord::Migration
 
       t.string :title, null: false
       t.string :tileset, null: false
+      t.integer :longitude, null: false
+      t.integer :latitude, null: false
       t.date :date_taken
       t.text :description
       t.string :camera_type
