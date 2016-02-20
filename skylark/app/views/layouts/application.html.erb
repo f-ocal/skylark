@@ -17,6 +17,9 @@
     <nav>
       <p class="main-title navbar-left"><a href="/">SKYLARK</a></p>
       <ul class="nav navbar-nav navbar-right">
+          <li>
+            <%= link_to 'The Map!', images_path %>
+          </li>
         <% if user_signed_in? %>
         <!-- first one is temporary -->
           <li id='nav-welcome'>
