@@ -1,2 +1,18 @@
 
 <h1>User Profile Page</h1>
+
+<%= @user.username %>
+<%= @user.email %>
+
+<h2> User's uploaded images:</h2>
+<p>--------------------------------</p>
+<% @user.images.each do |image| %>
+  <h3><%= image.title %></h3>
+  <ul>
+    <li>Description: <%= image.description %></li>
+    <li>Date taken: <%= image.date_taken %></li>
+    <li>Camera type:<%= image.camera_type %></li>
+  </ul>
+  <p>****************************************</p>
+<% end %>
+
