@@ -1,8 +1,8 @@
 class ImagesController < ApplicationController
 
   def index
-    flash[:test] = "This is a test"
-    redirect_to '/'
+    # flash[:test] = "This is a test"
+    # redirect_to '/'
   end
 
   def create
