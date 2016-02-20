@@ -1,0 +1,14 @@
+
+
+<h3><%= image.title %></h3>
+<ul>
+  <li>Description: <%= image.description %></li>
+  <li>Date taken: <%= image.date_taken %></li>
+  <li>Camera type:<%= image.camera_type %></li>
+</ul>
+<%= link_to 'Edit Image info', edit_image_path(image) %>
+<br>
+<%= link_to 'Delete item', image_path(image), method: :delete, :class => "btn btn-danger" %>
+<p>(Note: the above link will not actually delete the image from Mapbox, just from the display.)</p>
+
+<p>****************************************</p>

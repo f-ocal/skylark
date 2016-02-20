@@ -1,2 +1,14 @@
 
 <h1>User Profile Page</h1>
+
+<%= @user.username %>
+<%= @user.email %>
+
+<!-- Use partials!!!!! -->
+
+<h2> User's uploaded images:</h2>
+<p>--------------------------------</p>
+<% @user.images.each do |image| %>
+  <%= render partial: "images/show", layout: false, locals: {image: image} %>
+<% end %>
+

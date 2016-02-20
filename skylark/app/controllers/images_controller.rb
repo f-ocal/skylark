@@ -15,12 +15,17 @@ class ImagesController < ApplicationController
   end
 
   def show
+    @image = Image.find(params[:id])
   end
 
   def update
   end
 
   def destroy
+    image = Image.find(params[:id])
+    image.destroy
+    flash[:success] = "You deleted an image from the app. Please note that the image file still exists on Mapbox."
+    redirect_to '/'
   end
 
 end
