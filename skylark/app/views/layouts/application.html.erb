@@ -29,7 +29,7 @@
             <%= link_to('View Profile', user_path(current_user)) %>
           </li>
           <li>
-            <a href="/users/sign_in">Upload</a>
+            <%= link_to 'Upload', new_image_path %>
           </li>
         <% else %>
           <li>
