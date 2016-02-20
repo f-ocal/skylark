@@ -20,6 +20,8 @@ ActiveRecord::Schema.define(version: 20160219202541) do
     t.integer  "user_id"
     t.string   "title",       null: false
     t.string   "tileset",     null: false
+    t.integer  "marker_lat",  null: false
+    t.integer  "marker_long", null: false
     t.date     "date_taken"
     t.text     "description"
     t.string   "camera_type"

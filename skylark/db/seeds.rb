@@ -21,7 +21,7 @@ user2 = User.new(
 user2.save
 
 # 5.times do
-#   date = "2016-" + rand(1..12).to_s + "-" + rand(1..28).to_s
+  # date = "2016-" + rand(1..12).to_s + "-" + rand(1..28).to_s
 #   Image.create(
 #     user_id: 1,
 #     title: Faker::Hacker.adjective + Faker::Hacker.noun,
@@ -44,11 +44,39 @@ user2.save
 #     )
 # end
 
+date = "2016-" + rand(1..12).to_s + "-" + rand(1..28).to_s
+description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+
   Image.create(
     user_id: 1,
-    title:
-    tileset: "whoosawhatsits2245624gfg",
+    title: "Upper Peninsula Michigan",
+    tileset: "karlaking2.8kwtn5pq",
+    marker_lat:44.7,
+    marker_long: -85.8,
     date_taken: date,
-    description: Faker::Lorem.paragraph,
-    camera_type: Faker::Hacker.abbreviation
+    description: description,
+    camera_type: "Landsat 5"
     )
+
+  Image.create(
+    user_id: 2,
+    title: "Farm",
+    tileset: "karlaking2.des6as2q",
+    marker_lat:-121.9,
+    marker_long: 38.5,
+    date_taken: date,
+    description: description,
+    camera_type: "DJI Phantom"
+    )
+
+  Image.create(
+    user_id: 2,
+    title: "Fire Map",
+    tileset: "karlaking2.cb56po29",
+    marker_lat:-119.5,
+    marker_long: 40.0,
+    date_taken: date,
+    description: description,
+    camera_type: "DJI Phantom"
+    )
+
