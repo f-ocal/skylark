@@ -3,6 +3,7 @@ class ImagesController < ApplicationController
   def index
     # flash[:test] = "This is a test"
     # redirect_to '/'
+    @images = Image.all
   end
 
   def create
