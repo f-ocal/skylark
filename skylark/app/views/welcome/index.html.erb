@@ -1,20 +1,6 @@
-<h1>Welcome to Skylark!</h1>
-<h4>Look at this progress!</h4>
-
-<% flash.each do |name, msg| %>
-  <%= content_tag :div, msg, class: name %>
-<% end %>
-<br>
-
-<%= link_to 'Login', new_user_session_path %>
-<br>
-<%= link_to 'Register', new_user_registration_path %>
-<br>
-<%= link_to 'Log Out', destroy_user_session_path %>
-<br>
-<br>
-<br>
-<h3>This is where flash messages appear:</h3>
-<% flash.each do |name, msg| %>
-  <%= content_tag :div, msg, class: name %>
-<% end %>
+<div class='splash-div'>
+	<div class='div-title'>
+		<p><span id='welcome'>Welcome to</span> SKYLARK</p>
+	</div>
+</div>
+<%= video_tag 'ucsb.mp4', id: 'trash', :autoplay => true, :muted => true, :loop => 'true' %>1

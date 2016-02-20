@@ -5,14 +5,62 @@
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
+  <script src="http://code.jquery.com/jquery-1.12.0.min.js"></script>
+  <script src='https://api.tiles.mapbox.com/mapbox.js/v2.2.4/mapbox.js'></script>
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,800,800italic' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,300,100,100italic,300italic,400italic' rel='stylesheet' type='text/css'>
+  <link href='https://api.tiles.mapbox.com/mapbox.js/v2.2.4/mapbox.css' rel='stylesheet' />
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
 </head>
 <body>
-
-  <p class="notice"><%= notice %></p>
-  <p class="alert"><%= alert %></p>
+  <div class='navigation'>
+    <nav>
+      <p class="main-title navbar-left"><a href="/">SKYLARK</a></p>
+      <ul class="nav navbar-nav navbar-right">
+	      <li>
+	        <%= link_to 'Register', new_user_registration_path %>
+	      </li>
+	      <li>
+	        <%= link_to 'Login', new_user_session_path %>
+	      </li>
+	      <li>
+	        <%= link_to 'Log Out', destroy_user_session_path %>
+	      </li>
+	       <li>
+	        <a href="/users/sign_in">Upload</a>
+	      </li>
+      </ul>
+    </nav>
+  </div>
+  <% flash.each do |name, msg| %>
+  	<%= content_tag :div, msg, class: name %>
+  <% end %>
 
 <%= yield %>
 
+<script>
+	L.mapbox.accessToken = 'pk.eyJ1Ijoic2hhd25zcGVhcnMiLCJhIjoiY2lrdDJ2ZHI1MDAyNHZvbTNhZ3B2bm41MCJ9.WdbcbGGIoMKx9B3sC9ODuQ';
+	var geojson = [
+	  {
+	    "type": "Feature",
+	    "geometry": {
+	      "type": "Point",
+	      "coordinates": [-122.413682,37.775408]
+	    },
+	      "properties": {
+	      "marker-color": "#fe2e2e",
+	      "marker-size": "large",
+	      "marker-symbol": "rocket"
+	    }
+	  }
+	];
 
+	var mapGeo = L.mapbox.map('map_geo', 'mapbox.comic')
+	  .setView([37.7833, -122.4167], 13);
+
+
+	var myLayer = L.mapbox.featureLayer().setGeoJSON(geojson).addTo(mapGeo);
+	mapGeo.scrollWheelZoom.disable();
+</script>
 </body>
 </html>
