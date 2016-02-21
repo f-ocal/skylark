@@ -19,7 +19,10 @@
   color: white;
 }
 
-body { margin:0; padding:0; }
+body { 
+	margin:0; 
+	padding:0;
+}
 .map { position:absolute; top:50px; bottom:0; width:100%; }
 .container {
 	padding:0;
@@ -46,14 +49,14 @@ html body {
 	font-weight: 800;
 	color: #fff;
 }
-a:link {
+nav a:link {
     color: #fff;
     text-decoration: none;
 }
-a:visited {
+nav a:visited {
     color: #fff;
 }
-a:active {
+nav a:active {
     color: #fff;
 }
 video#trash {
@@ -122,5 +125,4 @@ video#trash {
   -webkit-transition: all 0.3 ease;
   transition: all 0.3 ease;
   cursor: pointer;
-}
 }
