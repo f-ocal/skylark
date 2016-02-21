@@ -22,9 +22,9 @@
           </li>
         <% if user_signed_in? %>
         <!-- first one is temporary -->
-          <li id='nav-welcome'>
+<!--           <li id='nav-welcome'>
             Welcome, <%= current_user.username %> !
-          </li>
+          </li> -->
           <li>
             <%= link_to('Log Out', destroy_user_session_path, :method => :delete) %>
           </li>
