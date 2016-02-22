@@ -4,9 +4,9 @@ require 'open-uri'
 class ImagesController < ApplicationController
 
   def index
-    # flash[:test] = "This is a test"
-    # @images = Image.all
-    @image = Image.last
+    @images = Image.all
+    gon.images = Image.all
+    p gon.images
   end
 
   def show
@@ -69,9 +69,11 @@ class ImagesController < ApplicationController
 
     def create_image_in_mapbox(tileset_name)
       HTTParty.post('https://api.mapbox.com/uploads/v1/f-ocal?access_token=sk.eyJ1IjoiZi1vY2FsIiwiYSI6ImNpa3ZneGFpYzAwZnV1bWtzczA2YWQ5OTQifQ.Eqezri-fTOcuCfv_mMTCuw',
-        :body => {  "tileset"=> "f-ocal.#{@key[12..36]}",
+
+        :body => {  "tileset" => "f-ocal.#{@key[12..36]}",
                     "url"=> @url,
-                    "name"=> tileset_name
+                    "name" => tileset_name
+                    
                   }.to_json,
         :headers => { 'Content-Type' => 'application/json'}
       )

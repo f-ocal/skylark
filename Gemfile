@@ -25,6 +25,7 @@ gem 'rack-cors', :require => 'rack/cors'
 
 gem 'aws-sdk', '~> 2'
 gem 'aws-sdk-rails'
+gem 'gon'
 gem 'httparty'
 
 gem 'devise'
