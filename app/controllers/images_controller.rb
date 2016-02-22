@@ -3,6 +3,8 @@ require 'open-uri'
 
 class ImagesController < ApplicationController
 
+  before_action :authenticate_user!, only: [:new, :create]
+
   def index
     @images = Image.all
     gon.images = Image.all
@@ -73,7 +75,7 @@ class ImagesController < ApplicationController
         :body => {  "tileset" => "f-ocal.#{@key[12..36]}",
                     "url"=> @url,
                     "name" => tileset_name
-                    
+
                   }.to_json,
         :headers => { 'Content-Type' => 'application/json'}
       )
