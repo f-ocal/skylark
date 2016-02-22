@@ -56,27 +56,29 @@
 
 <script>
 	L.mapbox.accessToken = 'pk.eyJ1Ijoic2hhd25zcGVhcnMiLCJhIjoiY2lrdDJ2ZHI1MDAyNHZvbTNhZ3B2bm41MCJ9.WdbcbGGIoMKx9B3sC9ODuQ';
-	var geojson = [
-	  {
-	    "type": "Feature",
-	    "geometry": {
-	      "type": "Point",
-	      "coordinates": [-122.413682,37.775408]
-	    },
-	      "properties": {
-	      "marker-color": "#fe2e2e",
-	      "marker-size": "large",
-	      "marker-symbol": "rocket"
-	    }
-	  }
-	];
 
-	var mapGeo = L.mapbox.map('map_geo', 'mapbox.light')
-	  .setView([37.7833, -122.4167], 13);
+	var mapGeo = L.mapbox.map('map_geo', 'mapbox.satellite').setView([39.828,-98.58], 5);
+  var layer = L.mapbox.tileLayer('karlaking2.3a56but5')
+    // var layer = L.mapbox.featureLayer('karlaking2.3a56but5')
+      .on('ready', function() {
+        var tileJSON = layer.getTileJSON();
+        var marker_lat = tileJSON.bounds[0]
+        var marker_long = tileJSON.bounds[1]
+    var marker = L.marker([(marker_long), marker_lat], {
+        icon: L.mapbox.marker.icon({
+          'marker-size': 'large',
+          'marker-color': '#cc33ff',
+          'marker-symbol': 'marker-stroked'
+        })
+      });
+    layer.addTo(mapGeo)
+    marker.addTo(mapGeo)
 
+    marker.on('click', function(e){
+      mapGeo.setView([e.latlng.lat, e.latlng.lng], 11)
+    })
+ });
 
-	var myLayer = L.mapbox.featureLayer().setGeoJSON(geojson).addTo(mapGeo);
-	mapGeo.scrollWheelZoom.disable();
 </script>
 </body>
 </html>
