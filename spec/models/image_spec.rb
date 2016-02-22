@@ -8,12 +8,45 @@ RSpec.describe Image, type: :model do
       description: "What a country!",
       camera_type: "BDSMSLR"
     )}
+  let(:image_no_tileset) { Image.new(
+      user_id: 1,
+      date_taken: "2015-08-15",
+      map: "jarjar.8binks",
+      description: "What a country!",
+      camera_type: "BDSMSLR"
+    )}
+  let(:image_no_description) { Image.new(
+      user_id: 1,
+      date_taken: "2015-08-15",
+      map: "jarjar.8binks",
+      tileset_name: "Tile Set Name",
+      camera_type: "BDSMSLR"
+    )}
+  let(:image_no_camera) { Image.new(
+      user_id: 1,
+      date_taken: "2015-08-15",
+      map: "jarjar.8binks",
+      description: "What a country!",
+      tileset_name: "Tile Set Name"
+    )}
 
   describe 'validations' do
     context 'will raise an error' do
       it 'when the date field is empty' do
         image_no_date.save
         expect(image_no_date.errors[:date_taken]).to include("can't be blank")
+      end
+      it 'when the tileset field is empty' do
+        image_no_tileset.save
+        expect(image_no_tileset.errors[:tileset_name]).to include("can't be blank")
+      end
+      it 'when the description field is empty' do
+        image_no_description.save
+        expect(image_no_description.errors[:description]).to include("can't be blank")
+      end
+      it 'when the camera type field is empty' do
+        image_no_camera.save
+        expect(image_no_camera.errors[:camera_type]).to include("can't be blank")
       end
     end
   end
