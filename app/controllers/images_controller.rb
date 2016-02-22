@@ -35,7 +35,7 @@ class ImagesController < ApplicationController
   private
 
     def image_params
-      params.require(:image).permit(:tileset_name, :description, :date_taken, :camera_type)
+      params.require(:image).permit(:tileset_name, :description, :date_taken, :camera_type, :image_file)
     end
 
     def set_image
@@ -48,6 +48,16 @@ class ImagesController < ApplicationController
       access_key_id = response.parsed_response['accessKeyId']
       secret_access_key = response.parsed_response['secretAccessKey']
       @key = response.parsed_response['key']
+
+      @full_key = "#{@key.slice(38..-1)}.#{@key.slice(12..36)}"
+      p "*" * 100
+      p @full_key
+      p "*" * 100
+
+       p "*" * 100
+      p @key
+      p "*" * 100
+
       session = response.parsed_response['sessionToken']
       bucket = response.parsed_response['bucket']
       @url = response.parsed_response['url']
@@ -64,16 +74,16 @@ class ImagesController < ApplicationController
       obj.upload_file(image_file.tempfile)
 
       create_image_in_mapbox(tileset_name)
-      return @key[12..36]
+      return @full_key
     end
 
     def create_image_in_mapbox(tileset_name)
       HTTParty.post('https://api.mapbox.com/uploads/v1/f-ocal?access_token=sk.eyJ1IjoiZi1vY2FsIiwiYSI6ImNpa3ZneGFpYzAwZnV1bWtzczA2YWQ5OTQifQ.Eqezri-fTOcuCfv_mMTCuw',
 
-        :body => {  "tileset" => "f-ocal.#{@key[12..36]}",
+        :body => {  "tileset" => "#{@full_key}",
                     "url"=> @url,
                     "name" => tileset_name
-                    
+
                   }.to_json,
         :headers => { 'Content-Type' => 'application/json'}
       )
