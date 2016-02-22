@@ -49,8 +49,8 @@ description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do e
 
   Image.create(
     user_id: 1,
-    title: "Upper Peninsula Michigan",
-    tileset: "karlaking2.8kwtn5pq",
+    tileset_name: "Upper Peninsula Michigan",
+    map: "karlaking2.8kwtn5pq",
     marker_lat:44.7,
     marker_long: -85.8,
     date_taken: date,
@@ -60,8 +60,8 @@ description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do e
 
   Image.create(
     user_id: 2,
-    title: "Farm",
-    tileset: "karlaking2.des6as2q",
+    tileset_name: "Farm",
+    map: "karlaking2.des6as2q",
     marker_lat:-121.9,
     marker_long: 38.5,
     date_taken: date,
@@ -71,12 +71,11 @@ description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do e
 
   Image.create(
     user_id: 2,
-    title: "Fire Map",
-    tileset: "karlaking2.cb56po29",
+    tileset_name: "Fire Map",
+    map: "karlaking2.cb56po29",
     marker_lat:-119.5,
     marker_long: 40.0,
     date_taken: date,
     description: description,
     camera_type: "DJI Phantom"
     )
-
