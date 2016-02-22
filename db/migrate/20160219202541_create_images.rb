@@ -4,12 +4,10 @@ class CreateImages < ActiveRecord::Migration
       t.belongs_to :user, index: true
 
       t.string :tileset_name
-      t.float :marker_lat
-      t.float :marker_long
+      t.string :map
       t.date :date_taken
       t.text :description
       t.string :camera_type
-      t.string :map
 
       t.timestamps null: false
     end

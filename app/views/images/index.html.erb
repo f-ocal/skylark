@@ -1,1 +1,12 @@
-<div id='map_geo' class='map'> </div>
+<div id='map_geo' class='map'></div>
+<div class='toggle-menu'>
+	<h1>Sidebar Menu!</h1>
+	<p>Ew this needs to be styled</p>
+	<p>BUT ITS ON THE MAP MOTHERFUCKERS</p>
+	<ul>
+	<% @images.each do |image| %>
+		<li><%= image.tileset_name %></li>
+		<p><%= image.description %></p>
+	<% end %>
+	</ul>
+</div>
