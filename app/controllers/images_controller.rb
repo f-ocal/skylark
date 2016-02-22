@@ -52,13 +52,6 @@ class ImagesController < ApplicationController
       @key = response.parsed_response['key']
 
       @full_key = "#{@key.slice(38..-1)}.#{@key.slice(12..36)}"
-      p "*" * 100
-      p @full_key
-      p "*" * 100
-
-       p "*" * 100
-      p @key
-      p "*" * 100
 
       session = response.parsed_response['sessionToken']
       bucket = response.parsed_response['bucket']
