@@ -1,17 +1,25 @@
+<div class='row col-md-12'>
+  <h3><%= image.title %></h3>
+  <img class="image-inventory" src="https://api.mapbox.com/v4/karlaking2.8kwtn5pq/-85.59478044867362,44.777045092220206,10/1065x200.png?access_token=tk.eyJ1Ijoic2hhd25zcGVhcnMiLCJleHAiOjE0NTYxMDU3MzEsImlhdCI6MTQ1NjEwMjEzMSwic2NvcGVzIjpbImVzc2VudGlhbHMiLCJzY29wZXM6bGlzdCIsIm1hcDpyZWFkIiwibWFwOndyaXRlIiwidXNlcjpyZWFkIiwidXNlcjp3cml0ZSIsInVwbG9hZHM6cmVhZCIsInVwbG9hZHM6bGlzdCIsInVwbG9hZHM6d3JpdGUiLCJzdHlsZXM6dGlsZXMiLCJzdHlsZXM6cmVhZCIsImZvbnRzOnJlYWQiLCJzdHlsZXM6d3JpdGUiLCJzdHlsZXM6bGlzdCIsInN0eWxlczpkcmFmdCIsImZvbnRzOmxpc3QiLCJmb250czp3cml0ZSIsImZvbnRzOm1ldGFkYXRhIiwiZGF0YXNldHM6cmVhZCIsImRhdGFzZXRzOndyaXRlIl0sImNsaWVudCI6Im1hcGJveC5jb20ifQ.lMp7gYtw-gOzphOsGzoryA"/>
+</div>
 
-
-<h3><%= image.title %></h3>
-<ul>
-  <li>Description: <%= image.description %></li>
-  <li>Date taken: <%= image.date_taken %></li>
-  <li>Camera type: <%= image.camera_type %></li>
-  <li>Latitude: <%= image.marker_lat %></li>
-  <li>Longitude: <%= image.marker_long %></li>
-</ul>
-<%= link_to 'Edit Image info', edit_image_path(image), :class => "btn btn-danger"  %>
-<br>
-<br>
-<%= link_to 'Delete item', image_path(image), method: :delete, :class => "btn btn-danger" %>
-<p>(Note: the above link will not actually delete the image from Mapbox, just from the display.)</p>
-
-<p>****************************************</p>
+<div class='row col-md-12'>
+  <div class='col-md-6'>
+    <ul>
+      <li>Description: <%= image.description %></li>
+    </ul>
+  </div>
+  <div class='col-md-6'>
+    <ul>
+      <li>Date taken: <%= image.date_taken %></li>
+      <li>Camera type: <%= image.camera_type %></li>
+      <li>Latitude: <%= image.marker_lat %></li>
+      <li>Longitude: <%= image.marker_long %></li>
+    </ul>
+    <%= link_to 'Edit Image info', edit_image_path(image), :class => "btn btn-danger"  %>
+    <br>
+    <br>
+    <%= link_to 'Delete item', image_path(image), method: :delete, :class => "btn btn-danger" %>
+    <p>(Note: the above link will not actually delete the image from Mapbox, just from the display.)</p>
+  </div>
+</div>

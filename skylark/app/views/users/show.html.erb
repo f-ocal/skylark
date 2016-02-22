@@ -1,56 +1,23 @@
 
-<h1>User Profile Page</h1>
+<div class='row col-md-12'>
+  <div class='user-info col-md-4 col-md-offset-4'>
+    <h1 id='welcome-user'>Welcome, <%= @user.username %>!</h1>
+    <img class="user-profile-picture" src="<%= asset_path('karlaking.jpg') %>"/>
+    <div class='username-email'>
+      <p>username: <%= @user.username %></p>
+      <p>email: <%= @user.email %></p>
+    </div>
+  </div>
+</div>
 
-<ul>
-  <li>Your username: <%= @user.username %></li>
-  <li>Your email: <%= @user.email %></li>
-</ul>
+<div class='container'>
+  <div class='row col-md-12'>
+    <h2> Your uploaded images:</h2>
+  </div>
 
-<h2> Your uploaded images:</h2>
-<p>--------------------------------</p>
-<% @user.images.each do |image| %>
-  <%= render partial: "images/show", layout: false, locals: {image: image} %>
-<% end %>
-
-<table>
-  <tr>
-    <th>ID</th>
-    <th>Image</th>
-    <th>Name</th>
-    <th>Latitude</th>
-    <th>Longitude</th>
-    <th>Edit</th>
-    <th>Delete</th>
-  </tr>
-  <% @images.each do |image| %>
-    <tr>
-      <td>
-        <%= image.id %>
-      </td>
-      <td class="image-td">
-        <img class="image-inventory" src="https://api.mapbox.com/v4/karlaking2.8kwtn5pq/-85.59478044867362,44.777045092220206,10/1200x200.png?access_token=tk.eyJ1Ijoic2hhd25zcGVhcnMiLCJleHAiOjE0NTYwNzk3ODQsImlhdCI6MTQ1NjA3NjE4Mywic2NvcGVzIjpbImVzc2VudGlhbHMiLCJzY29wZXM6bGlzdCIsIm1hcDpyZWFkIiwibWFwOndyaXRlIiwidXNlcjpyZWFkIiwidXNlcjp3cml0ZSIsInVwbG9hZHM6cmVhZCIsInVwbG9hZHM6bGlzdCIsInVwbG9hZHM6d3JpdGUiLCJzdHlsZXM6dGlsZXMiLCJzdHlsZXM6cmVhZCIsImZvbnRzOnJlYWQiLCJzdHlsZXM6d3JpdGUiLCJzdHlsZXM6bGlzdCIsInN0eWxlczpkcmFmdCIsImZvbnRzOmxpc3QiLCJmb250czp3cml0ZSIsImZvbnRzOm1ldGFkYXRhIiwiZGF0YXNldHM6cmVhZCIsImRhdGFzZXRzOndyaXRlIl0sImNsaWVudCI6Im1hcGJveC5jb20ifQ.x7LkmJIFXQuuySPhr-3Dag"/>
-      </td>
-      <td class="name-td">
-        <%= image.title %>
-      </td>
-      <td>
-        <%= image.marker_lat %>
-      </td>
-      <td>
-        <%= image.marker_long %>
-      </td>
-      <td>
-        <a href="">
-          <span aria-hidden="true" class="glyphicon glyphicon-wrench"></span>
-        </a>
-      </td>
-      <td>
-        <a data-confirm="You Sure?" data-method="delete" href="" rel="nofollow">
-          <span aria-hidden="true" class="glyphicon glyphicon-trash"></span>
-        </a>
-      </td>
-    </tr>
+  <% @user.images.each do |image| %>
+    <%= render partial: "images/show", layout: false, locals: {image: image} %>
   <% end %>
-</table>
 
+</div>
 
