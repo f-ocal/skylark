@@ -1,17 +1,27 @@
+<div class='row col-md-12'>
+  <h3><%= image.title %></h3>
+</div>
 
-
-<h3><%= image.title %></h3>
-<ul>
-  <li>Description: <%= image.description %></li>
-  <li>Date taken: <%= image.date_taken %></li>
-  <li>Camera type: <%= image.camera_type %></li>
-  <li>Latitude: <%= image.marker_lat %></li>
-  <li>Longitude: <%= image.marker_long %></li>
-</ul>
-<%= link_to 'Edit Image info', edit_image_path(image), :class => "btn btn-danger"  %>
-<br>
-<br>
-<%= link_to 'Delete item', image_path(image), method: :delete, :class => "btn btn-danger" %>
-<p>(Note: the above link will not actually delete the image from Mapbox, just from the display.)</p>
-
-<p>****************************************</p>
+<div class='row col-md-12'>
+  <div class='col-md-3'>
+    <img class="upload-image" src=""/>
+  </div>
+  <div class='col-md-5'>
+    <ul>
+      <li>Description: <%= image.description %></li>
+    </ul>
+  </div>
+  <div class='col-md-4'>
+    <ul>
+      <li>Date taken: <%= image.date_taken %></li>
+      <li>Camera type: <%= image.camera_type %></li>
+      <li>Latitude: <%= image.marker_lat %></li>
+      <li>Longitude: <%= image.marker_long %></li>
+    </ul>
+    <%= link_to 'Edit Image info', edit_image_path(image), :class => "btn btn-danger"  %>
+    <br>
+    <br>
+    <%= link_to 'Delete item', image_path(image), method: :delete, :class => "btn btn-danger" %>
+    <p>(Note: the above link will not actually delete the image from Mapbox, just from the display.)</p>
+  </div>
+</div>

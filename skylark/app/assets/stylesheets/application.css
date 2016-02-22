@@ -19,8 +19,8 @@
   color: white;
 }
 
-body { 
-	margin:0; 
+body {
+	margin:0;
 	padding:0;
 }
 .map { position:absolute; top:50px; bottom:0; width:100%; }
@@ -37,11 +37,11 @@ body {
 	padding-right: 100px;
 }
 html body {
-    width: 100%;
-    height: 100%;
-    margin: 0px;
-    padding: 0px;
-    overflow-x: hidden;
+  width: 100%;
+  height: 100%;
+  margin: 0px;
+  padding: 0px;
+  overflow-x: hidden;
 }
 .main-title {
 	font-size: 40px;
@@ -60,18 +60,18 @@ nav a:active {
     color: #fff;
 }
 video#trash {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    min-width: 100%;
-    min-height: 100%;
-    width: auto;
-    height: auto;
-    z-index: -100;
-    -ms-transform: translateX(-50%) translateY(-50%);
-    -moz-transform: translateX(-50%) translateY(-50%);
-    -webkit-transform: translateX(-50%) translateY(-50%);
-    transform: translateX(-50%) translateY(-50%);
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  min-width: 100%;
+  min-height: 100%;
+  widthh: auto;
+  height: auto;
+  z-index: -100;
+  -ms-transform: translateX(-50%) translateY(-50%);
+  -moz-transform: translateX(-50%) translateY(-50%);
+  -webkit-transform: translateX(-50%) translateY(-50%);
+  transform: translateX(-50%) translateY(-50%);
 }
 .div-title{
 	text-align: center;
@@ -125,4 +125,31 @@ video#trash {
   -webkit-transition: all 0.3 ease;
   transition: all 0.3 ease;
   cursor: pointer;
+}
+
+/* user profile page */
+.user-profile-picture {
+    border-radius: 50%;
+    width: 200px;
+    height: 200px;
+}
+.user-info{
+  text-align: center;
+}
+.username-email {
+  font-size: 20px;
+  font-family: 'Lato', sans-serif;
+  font-weight: 200;
+  color: #000;
+  margin-top: 20px;
+}
+#welcome-user {
+  font-size: 60px;
+  font-family: 'Lato', sans-serif;
+  font-weight: 300;
+  color: #000;
+  margin-bottom: 30px;
+}
+.uploaded-image {
+  border-bottom: 1px solid #ddd;
 }
