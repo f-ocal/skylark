@@ -153,3 +153,13 @@ video#trash {
 .uploaded-image {
   border-bottom: 1px solid #ddd;
 }
+#map_geo {
+  z-index: -1;
+}
+.toggle-menu {
+  height: 725px;
+  width: 300px;
+  background-color: #ddd;
+  float: right;
+  overflow: scroll;
+}

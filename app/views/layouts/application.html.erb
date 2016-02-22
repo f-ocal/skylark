@@ -76,11 +76,11 @@
       });
     layer.addTo(mapGeo)
     marker.addTo(mapGeo)
+    marker.on('click', function(e){
+      mapGeo.setView([e.latlng.lat, e.latlng.lng], 11)
+    })
   });
 
-  marker.on('click', function(e){
-    mapGeo.setView([e.latlng.lat, e.latlng.lng], 11)
-  })
  });
 
 </script>
