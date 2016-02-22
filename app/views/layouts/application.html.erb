@@ -13,28 +13,30 @@
   <link href='https://api.tiles.mapbox.com/mapbox.js/v2.2.4/mapbox.css' rel='stylesheet' />
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
 </head>
+
 <body>
   <div class='navigation'>
     <nav>
       <p class="main-title navbar-left"><a href="/">SKYLARK</a></p>
       <ul class="nav navbar-nav navbar-right">
           <li>
-            <%= link_to 'View Images', images_path %>
+            <%= link_to 'Map', images_path %>
           </li>
         <% if user_signed_in? %>
         <!-- first one is temporary -->
-<!--           <li id='nav-welcome'>
+            <!-- <li id='nav-welcome'>
             Welcome, <%= current_user.username %> !
           </li> -->
           <li>
+            <%= link_to 'Upload Image', new_image_path %>
+          </li>
+          <li>
+            <%= link_to('My Profile', user_path(current_user)) %>
+          </li>
+          <li>
             <%= link_to('Log Out', destroy_user_session_path, :method => :delete) %>
           </li>
-          <li>
-            <%= link_to('View Profile', user_path(current_user)) %>
-          </li>
-          <li>
-            <%= link_to 'Upload', new_image_path %>
-          </li>
+
         <% else %>
           <li>
             <%= link_to 'Register', new_user_registration_path %>
@@ -43,6 +45,7 @@
             <%= link_to 'Login', new_user_session_path %>
           </li>
         <% end %>
+        
       </ul>
     </nav>
   </div>
