@@ -3,6 +3,8 @@ require 'open-uri'
 
 class ImagesController < ApplicationController
 
+  before_action :authenticate_user!, only: [:new, :create]
+
   def index
     @images = Image.all
     gon.images = Image.all
