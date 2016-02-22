@@ -20,7 +20,7 @@ class ImagesController < ApplicationController
   end
 
   def create
-    @mapbox_image = set_s3_direct_post(params[:image][:tileset_name])
+    @mapbox_image = set_s3_direct_post(params[:image][:image_file], params[:image][:tileset_name])
     @image = Image.new(image_params)
     @image.user_id = current_user.id
     @image.map = @mapbox_image
