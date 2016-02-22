@@ -13,28 +13,30 @@
   <link href='https://api.tiles.mapbox.com/mapbox.js/v2.2.4/mapbox.css' rel='stylesheet' />
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
 </head>
+
 <body>
   <div class='navigation'>
     <nav>
       <p class="main-title navbar-left"><a href="/">SKYLARK</a></p>
       <ul class="nav navbar-nav navbar-right">
           <li>
-            <%= link_to 'View Images', images_path %>
+            <%= link_to 'Map', images_path %>
           </li>
         <% if user_signed_in? %>
         <!-- first one is temporary -->
-<!--           <li id='nav-welcome'>
+            <!-- <li id='nav-welcome'>
             Welcome, <%= current_user.username %> !
           </li> -->
           <li>
+            <%= link_to 'Upload Image', new_image_path %>
+          </li>
+          <li>
+            <%= link_to('My Profile', user_path(current_user)) %>
+          </li>
+          <li>
             <%= link_to('Log Out', destroy_user_session_path, :method => :delete) %>
           </li>
-          <li>
-            <%= link_to('View Profile', user_path(current_user)) %>
-          </li>
-          <li>
-            <%= link_to 'Upload', new_image_path %>
-          </li>
+
         <% else %>
           <li>
             <%= link_to 'Register', new_user_registration_path %>
@@ -42,16 +44,52 @@
           <li>
             <%= link_to 'Login', new_user_session_path %>
           </li>
+          <li>
+            <%= link_to 'Contact Us', new_user_session_path %>
+          </li>
         <% end %>
+
       </ul>
     </nav>
   </div>
 
-  <div id="flash-box">
+  <!-- <div id="flash-box">
   <% flash.each do |name, msg| %>
   	<%= content_tag :div, msg, class: name %>
+  <% end %> -->
+  <!-- </div> -->
+
+  <% if flash[:error] %>
+    <div class="alert alert-danger">
+      <% flash[:error].each do |error| %>
+        <p>
+          <%= error %>
+        </p>
+      <% end %>
+    </div>
   <% end %>
-  </div>
+
+  <% if flash[:success] %>
+    <div class="alert alert-success">
+      <% flash[:success].each do |success| %>
+        <p>
+          <%= success %>
+        </p>
+      <% end %>
+    </div>
+  <% end %>
+
+    <%if flash[:notice] %>
+      <div class="alert alert-info">
+        <%= flash[:notice] %>
+      </div>
+    <% end %>
+
+    <%if flash[:alert] %>
+      <div class="alert alert-warning">
+        <%= flash[:alert] %>
+      </div>
+    <% end %>
 
 <%= yield %>
 

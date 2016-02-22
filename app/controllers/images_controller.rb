@@ -22,15 +22,21 @@ class ImagesController < ApplicationController
   def create
     @mapbox_image = set_s3_direct_post(params[:image][:image_file], params[:image][:tileset_name])
     @image = Image.new(image_params)
+    @image.user_id = current_user.id
     @image.map = @mapbox_image
-    @image.save
-    redirect_to @image
+    if @image.save
+      flash[:success] = ["You have successfully uploaded an image with title of #{@image.tileset_name}"]
+      redirect_to images_path
+    else
+      flash[:error] = @image.errors.full_messages
+      render 'new'
+    end
   end
 
   def destroy
    image = Image.find(params[:id])
    image.destroy
-   flash[:success] = "You deleted an image from the app. Please note that the image file still exists on Mapbox."
+   flash[:error] = ["The image has been deleted!"]
    redirect_to user_path(current_user)
   end
 
@@ -50,6 +56,7 @@ class ImagesController < ApplicationController
       access_key_id = response.parsed_response['accessKeyId']
       secret_access_key = response.parsed_response['secretAccessKey']
       @key = response.parsed_response['key']
+      @full_key = "#{@key.slice(38..-1)}.#{@key.slice(12..36)}"
       session = response.parsed_response['sessionToken']
       bucket = response.parsed_response['bucket']
       @url = response.parsed_response['url']
@@ -62,17 +69,16 @@ class ImagesController < ApplicationController
       s3 = Aws::S3::Resource.new(client: s3_client)
 
       obj = s3.bucket(bucket).object(@key)
-
       obj.upload_file(image_file.tempfile)
-
       create_image_in_mapbox(tileset_name)
-      return @key[12..36]
+
+      return @full_key
     end
 
     def create_image_in_mapbox(tileset_name)
       HTTParty.post('https://api.mapbox.com/uploads/v1/f-ocal?access_token=sk.eyJ1IjoiZi1vY2FsIiwiYSI6ImNpa3ZneGFpYzAwZnV1bWtzczA2YWQ5OTQifQ.Eqezri-fTOcuCfv_mMTCuw',
 
-        :body => {  "tileset" => "f-ocal.#{@key[12..36]}",
+        :body => {  "tileset" => "#{@full_key}",
                     "url"=> @url,
                     "name" => tileset_name
 
