@@ -23,14 +23,19 @@ class ImagesController < ApplicationController
     @mapbox_image = set_s3_direct_post(params[:image][:image_file], params[:image][:tileset_name])
     @image = Image.new(image_params)
     @image.map = @mapbox_image
-    @image.save
-    redirect_to @image
+    if @image.save
+      flash[:success] = ["You have successfully uploaded an image, #{@image.tileset_name}"]
+      redirect_to images_path
+    else
+      flash[:error] = @image.errors.full_messages
+      render 'new'
+    end
   end
 
   def destroy
    image = Image.find(params[:id])
    image.destroy
-   flash[:error] = "The image has been deleted!"
+   flash[:error] = ["The image has been deleted!"]
    redirect_to user_path(current_user)
   end
 
@@ -79,6 +84,5 @@ class ImagesController < ApplicationController
                   }.to_json,
         :headers => { 'Content-Type' => 'application/json'}
       )
-      flash[:success] = "You have successfully uploaded an image!"
     end
 end
