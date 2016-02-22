@@ -4,6 +4,7 @@ require 'open-uri'
 class ImagesController < ApplicationController
 
   def index
+    @images = Image.all
     gon.images = Image.all
     p gon.images
   end

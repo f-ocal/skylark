@@ -19,12 +19,10 @@ ActiveRecord::Schema.define(version: 20160219202541) do
   create_table "images", force: :cascade do |t|
     t.integer  "user_id"
     t.string   "tileset_name"
-    t.float    "marker_lat"
-    t.float    "marker_long"
+    t.string   "map"
     t.date     "date_taken"
     t.text     "description"
     t.string   "camera_type"
-    t.string   "map"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
   end
