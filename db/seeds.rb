@@ -23,8 +23,7 @@ description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do e
     map: "karlaking2.8kwtn5pq",
     date_taken: date,
     description: description,
-    camera_type: "Landsat 5",
-    image_file: ''
+    camera_type: "Landsat 5"
     )
 
   Image.create(
@@ -33,8 +32,7 @@ description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do e
     map: "karlaking2.des6as2q",
     date_taken: date,
     description: description,
-    camera_type: "DJI Phantom",
-    image_file: ''
+    camera_type: "DJI Phantom"
     )
 
   Image.create(
@@ -43,6 +41,5 @@ description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do e
     map: "karlaking2.cb56po29",
     date_taken: date,
     description: description,
-    camera_type: "DJI Phantom",
-    image_file: ''
+    camera_type: "DJI Phantom"
     )
