@@ -1,0 +1,40 @@
+<table>
+  <tr>
+    <th>ID</th>
+    <th>Image</th>
+    <th>Name</th>
+    <th>Latitude</th>
+    <th>Longitude</th>
+    <th>Edit</th>
+    <th>Delete</th>
+  </tr>
+  <% @images.each do |image| %>
+    <tr>
+      <td>
+        <%= image.id %>
+      </td>
+      <td class="image-td">
+        <img class="image-inventory" src="https://api.mapbox.com/v4/karlaking2.8kwtn5pq/-85.59478044867362,44.777045092220206,10/1065x200.png?access_token=tk.eyJ1Ijoic2hhd25zcGVhcnMiLCJleHAiOjE0NTYxMDU3MzEsImlhdCI6MTQ1NjEwMjEzMSwic2NvcGVzIjpbImVzc2VudGlhbHMiLCJzY29wZXM6bGlzdCIsIm1hcDpyZWFkIiwibWFwOndyaXRlIiwidXNlcjpyZWFkIiwidXNlcjp3cml0ZSIsInVwbG9hZHM6cmVhZCIsInVwbG9hZHM6bGlzdCIsInVwbG9hZHM6d3JpdGUiLCJzdHlsZXM6dGlsZXMiLCJzdHlsZXM6cmVhZCIsImZvbnRzOnJlYWQiLCJzdHlsZXM6d3JpdGUiLCJzdHlsZXM6bGlzdCIsInN0eWxlczpkcmFmdCIsImZvbnRzOmxpc3QiLCJmb250czp3cml0ZSIsImZvbnRzOm1ldGFkYXRhIiwiZGF0YXNldHM6cmVhZCIsImRhdGFzZXRzOndyaXRlIl0sImNsaWVudCI6Im1hcGJveC5jb20ifQ.lMp7gYtw-gOzphOsGzoryA"/>
+      </td>
+      <td class="name-td">
+        <%= image.title %>
+      </td>
+      <td>
+        <%= image.marker_lat %>
+      </td>
+      <td>
+        <%= image.marker_long %>
+      </td>
+      <td>
+        <a href="">
+          <span aria-hidden="true" class="glyphicon glyphicon-wrench"></span>
+        </a>
+      </td>
+      <td>
+        <a data-confirm="You Sure?" data-method="delete" href="" rel="nofollow">
+          <span aria-hidden="true" class="glyphicon glyphicon-trash"></span>
+        </a>
+      </td>
+    </tr>
+  <% end %>
+</table>
