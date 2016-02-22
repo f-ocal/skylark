@@ -4,10 +4,8 @@ require 'open-uri'
 class ImagesController < ApplicationController
 
   def index
-    # flash[:test] = "This is a test"
-    # @images = Image.all
-    @images = Image.all
-    p @images
+    gon.images = Image.all
+    p gon.images
   end
 
   def show
