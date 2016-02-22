@@ -22,9 +22,10 @@ class ImagesController < ApplicationController
   def create
     @mapbox_image = set_s3_direct_post(params[:image][:image_file], params[:image][:tileset_name])
     @image = Image.new(image_params)
+    @image.user_id = current_user.id
     @image.map = @mapbox_image
     if @image.save
-      flash[:success] = ["You have successfully uploaded an image, #{@image.tileset_name}"]
+      flash[:success] = ["You have successfully uploaded an image with title of #{@image.tileset_name}"]
       redirect_to images_path
     else
       flash[:error] = @image.errors.full_messages
