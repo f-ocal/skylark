@@ -6,7 +6,8 @@ class ImagesController < ApplicationController
   def index
     # flash[:test] = "This is a test"
     # @images = Image.all
-    @image = Image.last
+    @images = Image.all
+    p @images
   end
 
   def show
