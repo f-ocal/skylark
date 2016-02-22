@@ -30,7 +30,7 @@ class ImagesController < ApplicationController
   def destroy
    image = Image.find(params[:id])
    image.destroy
-   flash[:success] = "You deleted an image from the app. Please note that the image file still exists on Mapbox."
+   flash[:error] = "The image has been deleted!"
    redirect_to user_path(current_user)
   end
 
@@ -79,5 +79,6 @@ class ImagesController < ApplicationController
                   }.to_json,
         :headers => { 'Content-Type' => 'application/json'}
       )
+      flash[:success] = "You have successfully uploaded an image!"
     end
 end
