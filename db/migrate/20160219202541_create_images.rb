@@ -8,6 +8,7 @@ class CreateImages < ActiveRecord::Migration
       t.date :date_taken
       t.text :description
       t.string :camera_type
+      t.string :image_file
 
       t.timestamps null: false
     end
