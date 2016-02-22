@@ -56,9 +56,7 @@ class ImagesController < ApplicationController
       access_key_id = response.parsed_response['accessKeyId']
       secret_access_key = response.parsed_response['secretAccessKey']
       @key = response.parsed_response['key']
-
       @full_key = "#{@key.slice(38..-1)}.#{@key.slice(12..36)}"
-
       session = response.parsed_response['sessionToken']
       bucket = response.parsed_response['bucket']
       @url = response.parsed_response['url']
@@ -71,10 +69,9 @@ class ImagesController < ApplicationController
       s3 = Aws::S3::Resource.new(client: s3_client)
 
       obj = s3.bucket(bucket).object(@key)
-
       obj.upload_file(image_file.tempfile)
-
       create_image_in_mapbox(tileset_name)
+
       return @full_key
     end
 
