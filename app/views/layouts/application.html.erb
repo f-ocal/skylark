@@ -44,17 +44,52 @@
           <li>
             <%= link_to 'Login', new_user_session_path %>
           </li>
+          <li>
+            <%= link_to 'Contact Us', new_user_session_path %>
+          </li>
         <% end %>
-        
+
       </ul>
     </nav>
   </div>
 
-  <div id="flash-box">
+  <!-- <div id="flash-box">
   <% flash.each do |name, msg| %>
   	<%= content_tag :div, msg, class: name %>
+  <% end %> -->
+  <!-- </div> -->
+
+  <% if flash[:error] %>
+    <div class="alert alert-danger">
+      <% flash[:error].each do |error| %>
+        <p>
+          <%= error %>
+        </p>
+      <% end %>
+    </div>
   <% end %>
-  </div>
+
+  <% if flash[:success] %>
+    <div class="alert alert-success">
+      <%= flash[:success].each do |success| %>
+        <p>
+          <%= success %>
+        </p>
+      <% end %>
+    </div>
+  <% end %>
+
+  <% if flash[:notice] %>
+    <div class="alert alert-info">
+      <%= notice %>
+    </div>
+  <% end %>
+
+  <% if flash[:alert] %>
+    <div class="alert alert-warning">
+      <%= flash[:alert] %>
+    </div>
+  <% end %>
 
 <%= yield %>
 
