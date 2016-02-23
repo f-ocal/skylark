@@ -87,12 +87,15 @@
 
     <%if flash[:alert] %>
       <div class="alert alert-warning">
-        <%= flash[:alert] %>
+        <% flash[:alert].each do |alert| %>
+          <p>
+            <%= alert %>
+          </p>
+        <% end %>
       </div>
     <% end %>
 
 <%= yield %>
-
 
 </body>
 </html>

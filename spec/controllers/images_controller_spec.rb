@@ -1,19 +1,39 @@
 require 'rails_helper'
 
-RSpec.describe ImagesController, type: :controller do
+#  DON'T DELETE THIS CONTROLLER TESTS - IT'S WORKING IN PROGRESS****
 
-  describe 'index action' do
-    it 'should load all images' do
-      get :index
- # Why does the below one fail?
-      # expect(assigns[:images]).to_not be_blank
-      expect(response.status).to eq 200
-      expect(response).to render_template(:index)
-    end
-  end
+# RSpec.describe ImagesController, type: :controller do
+#   let(:user) { User.create(username: 'bob', email: 'someone@gmail.com', password: 'something') }
+#   let(:file_to_upload) {fixture_file_upload('export.tiff', 'image/tiff')}
+#   before do
+#     sign_in user
+#   end
+#   describe '#create' do
+#     let(:params) { {image: {tileset_name: 'name', description: 'something', camera_type: 'whatever', date_taken: '2016-12-02', image_file: file_to_upload}} }
+#
+#     it 'calls the MapBoxService to upload files' do
+#       expect_any_instance_of(MapBoxService).to receive(:upload_file).with(file_to_upload, 'name')
+#       post :create, params
+#     end
+#
+#     it 'redirects to images path' do
+#       post :create, params
+#       expect(response).to redirect_to images_path
+#     end
+#
+#     describe 'validation errors' do
+#       it 'renders new' do
+#         post :create
+#         expect(response).to render_template '/images/new'
+#       end
+#
+#     end
+#   end
+# end
 
 
-end
+
+
 
 
 
