@@ -7,8 +7,14 @@ class ImagesController < ApplicationController
 
   def index
     @images = Image.all
-    gon.images = Image.all
-    p gon.images
+    gon.images = @images.map do |image|
+      {username: image.user.username,
+        map: image.map,
+        description: image.description,
+        tileset_name: image.tileset_name
+      }
+    end
+
   end
 
   def show
