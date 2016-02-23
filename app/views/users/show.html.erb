@@ -10,12 +10,20 @@
 </div>
 
 <div class='container'>
-  <div class='row col-md-12'>
-    <h2> Your uploaded images:</h2>
-  </div>
-
-  <% @user.images.each do |image| %>
-    <%= render partial: "images/show", layout: false, locals: {image: image} %>
+  <% if !@user.images.empty? %>
+    <div class='row col-md-12'>
+      <h2> Your uploaded images:</h2>
+    </div>
+    <% @user.images.each do |image| %>
+      <%= render partial: "images/show", layout: false, locals: {image: image} %>
+    <% end %>
+  <% else %>
+    <div class='row col-md-12'>
+      <h2> You don't have any images uploaded!</h2>
+      <p> <%= link_to 'Why not add some images, hmm?', new_image_path %></p>
+    </div>
   <% end %>
+
+
 
 </div>
