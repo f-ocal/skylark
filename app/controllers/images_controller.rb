@@ -6,8 +6,14 @@ class ImagesController < ApplicationController
   before_action :authenticate_user!, only: [:new, :create]
 
   def index
-    @images    = Image.all
-    gon.images = Image.all
+    @images = Image.all
+    gon.images = @images.map do |image|
+      {username: image.user.username,
+        map: image.map,
+        description: image.description,
+        tileset_name: image.tileset_name
+      }
+    end
   end
 
   def show
