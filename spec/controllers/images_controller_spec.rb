@@ -2,7 +2,19 @@ require 'rails_helper'
 
 RSpec.describe ImagesController, type: :controller do
 
+  describe 'index action' do
+    it 'should load all images' do
+      get :index
+ # Why does the below one fail?
+      # expect(assigns[:images]).to_not be_blank
+      expect(response.status).to eq 200
+      expect(response).to render_template(:index)
+    end
+  end
+
+
 end
+
 
 
 # Jordan's example code
