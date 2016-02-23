@@ -28,6 +28,8 @@ gem 'aws-sdk-rails'
 gem 'gon'
 gem 'httparty'
 
+gem 'client_side_validations'
+
 gem 'devise'
 gem 'faker'
 
