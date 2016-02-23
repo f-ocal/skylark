@@ -29,7 +29,21 @@ L.mapbox.accessToken = 'pk.eyJ1Ijoic2hhd25zcGVhcnMiLCJhIjoiY2lrdDJ2ZHI1MDAyNHZvb
 
           marker.on('click', function(e){
             mapGeo.setView([e.latlng.lat, e.latlng.lng], 11)
-            $('#info').append('<h2>' + image.tileset_name + '</p>')
+
+            var tilesetName = image.tileset_name
+            var tlNameH2Tag = '<h2 class="sb-tl-name">' + tilesetName + '</h2>'
+
+            var username = image.username
+            var usernamePTag = '<p class="sb-username"> Mapmaker: ' + image.username + '</p>'
+
+            var cameraType = image.camera_type
+            var cameraTypePTag = '<p class="sb-camera-type"> Camera Type: ' + cameraType + '</p>'
+
+            var descr = image.description
+            var descrPTag = '<p class="sb-desc">' + descr + '</p>'
+
+
+            $('#info').append(tlNameH2Tag + usernamePTag + cameraTypePTag + descrPTag)
 
 
           });
@@ -44,7 +58,7 @@ L.mapbox.accessToken = 'pk.eyJ1Ijoic2hhd25zcGVhcnMiLCJhIjoiY2lrdDJ2ZHI1MDAyNHZvb
   //loads all markers, global view - DONE
   // Sidebar
       //hide on load
-      //appear on click of marker, with clicked image info
+      //appear on click of marker, with clicked image info; upon clicking another marker, previous marker info disappears
       //toggle on and off on click
 
 
