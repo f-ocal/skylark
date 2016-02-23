@@ -29,6 +29,14 @@ RSpec.describe Image, type: :model do
       description: "What a country!",
       tileset_name: "Tile Set Name"
     )}
+  let(:image) { Image.new(
+      user_id: 1,
+      date_taken: "2015-08-15",
+      map: "jarjar.8binks",
+      description: "What a country!",
+      tileset_name: "Tile Set Name",
+      camera_type: "BDSMSLR"
+    )}
 
   describe 'validations' do
     context 'will raise an error' do
@@ -48,6 +56,9 @@ RSpec.describe Image, type: :model do
         image_no_camera.save
         expect(image_no_camera.errors[:camera_type]).to include("can't be blank")
       end
+    end
+    it 'saves the image when the fields are not empty' do
+        expect{image.save}.to change{Image.count}.by(1)
     end
   end
 end

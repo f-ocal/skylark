@@ -9,6 +9,11 @@ RSpec.describe User, type: :model do
     username: 'Steve',
     password: '12345678'
     )}
+  let(:user) { User.new(
+    username: 'Steve',
+    email: 'steve@email.com',
+    password: '12345678'
+    )}
 
   describe 'validations' do
     context 'will raise an error' do
@@ -20,6 +25,9 @@ RSpec.describe User, type: :model do
         user_no_email.save
         expect(user_no_email.errors[:email]).to include("can't be blank")
       end
+    end
+    it 'saves the user when the fields are not empty' do
+        expect{user.save}.to change{User.count}.by(1)
     end
   end
 end
