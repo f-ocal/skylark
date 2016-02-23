@@ -23,7 +23,7 @@ class ImagesController < ApplicationController
   end
 
   def create
-    @mapbox_image  = MapBoxService.new.upload_file(image_params[:image][:image_file], image_params[:image][:tileset_name])
+    @mapbox_image  = MapBoxService.new.upload_file(params[:image][:image_file], params[:image][:tileset_name])
     @image         = Image.new(image_params)
     @image.user_id = current_user.id
     @image.map     = @mapbox_image
@@ -58,7 +58,7 @@ class ImagesController < ApplicationController
   private
 
   def image_params
-    params.require(:image).permit(:tileset_name, :description, :date_taken, :camera_type, :image_file)
+    params.require(:image).permit(:tileset_name, :description, :date_taken, :camera_type)
   end
 
   def set_image

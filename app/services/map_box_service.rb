@@ -25,8 +25,7 @@ class MapBoxService
                                "name"    => tileset_name
 
                   }.to_json,
-                  :headers => {'Content-Type' => 'application/json'}
-    )
+                  :headers => {'Content-Type' => 'application/json'})
 
     @full_key
   end

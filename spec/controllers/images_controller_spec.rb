@@ -1,5 +1,7 @@
 require 'rails_helper'
 
+#  DON'T DELETE THIS CONTROLLER TESTS - IT'S WORKING IN PROGRESS****
+
 # RSpec.describe ImagesController, type: :controller do
 #   let(:user) { User.create(username: 'bob', email: 'someone@gmail.com', password: 'something') }
 #   let(:file_to_upload) {fixture_file_upload('export.tiff', 'image/tiff')}
