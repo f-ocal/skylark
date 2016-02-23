@@ -19,7 +19,8 @@ L.mapbox.accessToken = 'pk.eyJ1Ijoic2hhd25zcGVhcnMiLCJhIjoiY2lrdDJ2ZHI1MDAyNHZvb
             icon: L.mapbox.marker.icon({
               'marker-size': 'large',
               'marker-color': '#cc33ff',
-              'marker-symbol': 'marker-stroked'
+              'marker-symbol': 'marker-stroked',
+
             })
           });
 
@@ -28,6 +29,9 @@ L.mapbox.accessToken = 'pk.eyJ1Ijoic2hhd25zcGVhcnMiLCJhIjoiY2lrdDJ2ZHI1MDAyNHZvb
 
           marker.on('click', function(e){
             mapGeo.setView([e.latlng.lat, e.latlng.lng], 11)
+            $('#info').append('<h2>' + image.tileset_name + '</p>')
+
+
           });
 
         });
@@ -36,7 +40,12 @@ L.mapbox.accessToken = 'pk.eyJ1Ijoic2hhd25zcGVhcnMiLCJhIjoiY2lrdDJ2ZHI1MDAyNHZvb
 
   });
 
-
+// Images Index
+  //loads all markers, global view - DONE
+  // Sidebar
+      //hide on load
+      //appear on click of marker, with clicked image info
+      //toggle on and off on click
 
 
 
