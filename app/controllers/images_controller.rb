@@ -33,8 +33,9 @@ class ImagesController < ApplicationController
     @image         = Image.new(image_params)
     @image.user_id = current_user.id
     @image.map     = @mapbox_image
+
     if @image.save
-      flash[:success] = ["You have successfully uploaded an image with title of #{@image.tileset_name}"]
+      flash[:success] = ["You have successfully uploaded an image with title of #{@image.tileset_name} !"]
       redirect_to images_path
     else
       flash[:error] = @image.errors.full_messages
@@ -47,7 +48,7 @@ class ImagesController < ApplicationController
     success = @image.update(image_params)
 
     if success
-      flash[:error] = ["Your image information has been edited"]
+      flash[:alert] = ["Your image information has been edited"]
       redirect_to user_path(current_user)
     else
       render 'edit'

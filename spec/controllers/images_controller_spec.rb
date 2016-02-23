@@ -35,6 +35,11 @@ require 'rails_helper'
 
 
 
+
+
+
+
+
 # Jordan's example code
 # describe ArticlesController do
 #   let(:article) { FactoryGirl.create :article}
