@@ -19,6 +19,10 @@ class ImagesController < ApplicationController
     @image = Image.new
   end
 
+  def edit
+    @image = Image.find(params[:id])
+  end
+
   def create
     @mapbox_image = set_s3_direct_post(params[:image][:image_file], params[:image][:tileset_name])
     @image = Image.new(image_params)
@@ -30,6 +34,18 @@ class ImagesController < ApplicationController
     else
       flash[:error] = @image.errors.full_messages
       render 'new'
+    end
+  end
+
+  def update
+    @image = Image.find(params[:id])
+    success = @image.update(image_params)
+
+    if success
+      flash[:error] = ["Your image information has been edited"]
+      redirect_to user_path(current_user)
+    else
+      render 'edit'
     end
   end
 
