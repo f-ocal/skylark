@@ -2,41 +2,41 @@ require 'rails_helper'
 
 RSpec.describe Image, type: :model do
   let(:image_no_date) { Image.new(
-      user_id: 1,
+      user_id:      1,
       tileset_name: "Tile Set Name",
-      map: "jarjar.8binks",
-      description: "What a country!",
-      camera_type: "BDSMSLR"
-    )}
+      map:          "jarjar.8binks",
+      description:  "What a country!",
+      camera_type:  "BDSMSLR"
+  ) }
   let(:image_no_tileset) { Image.new(
-      user_id: 1,
-      date_taken: "2015-08-15",
-      map: "jarjar.8binks",
+      user_id:     1,
+      date_taken:  "2015-08-15",
+      map:         "jarjar.8binks",
       description: "What a country!",
       camera_type: "BDSMSLR"
-    )}
+  ) }
   let(:image_no_description) { Image.new(
-      user_id: 1,
-      date_taken: "2015-08-15",
-      map: "jarjar.8binks",
+      user_id:      1,
+      date_taken:   "2015-08-15",
+      map:          "jarjar.8binks",
       tileset_name: "Tile Set Name",
-      camera_type: "BDSMSLR"
-    )}
+      camera_type:  "BDSMSLR"
+  ) }
   let(:image_no_camera) { Image.new(
-      user_id: 1,
-      date_taken: "2015-08-15",
-      map: "jarjar.8binks",
-      description: "What a country!",
+      user_id:      1,
+      date_taken:   "2015-08-15",
+      map:          "jarjar.8binks",
+      description:  "What a country!",
       tileset_name: "Tile Set Name"
-    )}
+  ) }
   let(:image) { Image.new(
-      user_id: 1,
-      date_taken: "2015-08-15",
-      map: "jarjar.8binks",
-      description: "What a country!",
+      user_id:      1,
+      date_taken:   "2015-08-15",
+      map:          "jarjar.8binks",
+      description:  "What a country!",
       tileset_name: "Tile Set Name",
-      camera_type: "BDSMSLR"
-    )}
+      camera_type:  "BDSMSLR"
+  ) }
 
   describe 'validations' do
     context 'will raise an error' do
@@ -58,7 +58,7 @@ RSpec.describe Image, type: :model do
       end
     end
     it 'saves the image when the fields are not empty' do
-        expect{image.save}.to change{Image.count}.by(1)
+      expect { image.save }.to change { Image.count }.by(1)
     end
   end
 end
