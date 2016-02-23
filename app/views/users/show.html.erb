@@ -15,7 +15,7 @@
       <h2> Your uploaded images:</h2>
     </div>
     <% @user.images.each do |image| %>
-      <%= render partial: "images/show", layout: false, locals: {image: image} %>
+      <%= render partial: "images/show_images_per_user", layout: false, locals: {image: image} %>
     <% end %>
     <p> <%= link_to 'Upload another image', new_image_path %></p>
   <% else %>
