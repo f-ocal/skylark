@@ -4,6 +4,8 @@ RSpec.describe UsersController, type: :controller do
 
 end
 
+
+
 # Jordan's example code
 # describe ArticlesController do
 #   let(:article) { FactoryGirl.create :article}
