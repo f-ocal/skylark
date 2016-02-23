@@ -28,6 +28,7 @@ L.mapbox.accessToken = 'pk.eyJ1Ijoic2hhd25zcGVhcnMiLCJhIjoiY2lrdDJ2ZHI1MDAyNHZvb
           marker.addTo(mapGeo)
 
           marker.on('click', function(e){
+            // e.preventDefault();
             mapGeo.setView([e.latlng.lat, e.latlng.lng], 11)
 
             var tilesetName = image.tileset_name
@@ -42,11 +43,22 @@ L.mapbox.accessToken = 'pk.eyJ1Ijoic2hhd25zcGVhcnMiLCJhIjoiY2lrdDJ2ZHI1MDAyNHZvb
             var descr = image.description
             var descrPTag = '<p class="sb-desc">' + descr + '</p>'
 
+            $('#info').empty();
 
             $('#info').append(tlNameH2Tag + usernamePTag + cameraTypePTag + descrPTag)
 
-
           });
+
+              mapGeo.on('zoomend', function(){
+                if(mapGeo.getZoom() >= 8){
+                  console.log("zoooooooom")
+                  marker.setOpacity(0);
+                }
+                else{
+                  marker.setOpacity(1);
+                }
+
+              })
 
         });
 
