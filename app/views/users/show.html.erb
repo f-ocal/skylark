@@ -17,6 +17,7 @@
     <% @user.images.each do |image| %>
       <%= render partial: "images/show", layout: false, locals: {image: image} %>
     <% end %>
+    <p> <%= link_to 'Upload another image', new_image_path %></p>
   <% else %>
     <div class='row col-md-12'>
       <h2> You don't have any images uploaded!</h2>
