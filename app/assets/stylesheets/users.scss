@@ -1,3 +1,77 @@
 // Place all the styles related to the users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+/* user profile page */
+.user-profile-picture {
+    border-radius: 50%;
+    width: 200px;
+    height: 200px;
+}
+.user-info{
+  text-align: center;
+}
+.username-email {
+  font-size: 20px;
+  font-family: 'Lato', sans-serif;
+  font-weight: 200;
+  color: #000;
+  margin-top: 20px;
+}
+#welcome-user {
+  font-size: 60px;
+  font-family: 'Lato', sans-serif;
+  font-weight: 300;
+  color: #000;
+  margin-bottom: 30px;
+}
+.uploaded-image {
+  border-bottom: 1px solid #ddd;
+}
+#map_geo {
+  z-index: -1;
+}
+.toggle-menu {
+  height: 725px;
+  width: 300px;
+  background-color: #ddd;
+  float: right;
+  overflow: scroll;
+}
+
+
+/* user login page */
+.login-page {
+	background-color: #eee;
+}
+.form {
+	background-color: #fff;
+	margin-top: 50px;
+	padding: 10px 0 40px 0;
+}
+
+#user_username, #user_email, #user_password, #user_password_confirmation {
+  font-family: "Roboto", sans-serif;
+  outline: 0;
+  background: #f2f2f2;
+  width: 100%;
+  border: 0;
+  margin: 0 0 15px;
+  padding: 15px;
+  box-sizing: border-box;
+  font-size: 14px;
+}
+#login_submit {
+  font-family: "Roboto", sans-serif;
+  text-transform: uppercase;
+  outline: 0;
+  background: #d2cece;
+  width: 100%;
+  border: 0;
+  padding: 15px;
+  color: #fff;
+  font-size: 14px;
+  -webkit-transition: all 0.3 ease;
+  transition: all 0.3 ease;
+  cursor: pointer;
+}
