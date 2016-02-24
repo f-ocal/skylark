@@ -3,3 +3,5 @@ rvm:
   - 2.2.1
 services:
   - postgresql
+before_script:
+  - psql -c 'create database skylark_test;' -U postgres
