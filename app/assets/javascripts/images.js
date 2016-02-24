@@ -10,18 +10,12 @@ var mapGeo = L.mapbox.map('map_geo', 'mapbox.satellite').setView([27.433,-1.700]
 
   $('.sidebar').hide();
 
-   //Opacity handle
-  opacityHandle(gon.images);
-
   gon.images.forEach ( function (image) {
-
+    console.log(image);
     var layer = L.mapbox.tileLayer(image.map, {
       format: 'png128'
     });
-    console.log(image.map)
-    console.log(layer)
-   layer.on('ready', function() {
-
+    layer.on('ready', function() {
       var tileJSON = layer.getTileJSON();
 
       var north_bound = tileJSON.bounds[3]
@@ -42,6 +36,9 @@ var mapGeo = L.mapbox.map('map_geo', 'mapbox.satellite').setView([27.433,-1.700]
 
       layer.addTo(mapGeo)
       marker.addTo(mapGeo)
+
+      //Opacity handle
+      opacityHandle(layer);
 
     //Marker setup
       marker.on('click', function(e){
@@ -84,7 +81,7 @@ var mapGeo = L.mapbox.map('map_geo', 'mapbox.satellite').setView([27.433,-1.700]
 
   });
 
-  var opacityHandle = function(images){
+  var opacityHandle = function(image_layer){
     var handle = document.getElementById('handle'),
     start = false,
     startTop;
@@ -94,8 +91,7 @@ var mapGeo = L.mapbox.map('map_geo', 'mapbox.satellite').setView([27.433,-1.700]
       //Adjust Control
       handle.style.top = Math.max(-5, Math.min(195, startTop + parseInt(e.clientY, 10) - start)) + 'px';
       //Adjust opacity -- loop through images
-
-        image_layer.setOpacity(1 - (handle.offsetTop / 200));
+      image_layer.setOpacity(1 - (handle.offsetTop / 200));
     }
 
     handle.onmousedown = function(e) {
