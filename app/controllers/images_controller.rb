@@ -11,7 +11,8 @@ class ImagesController < ApplicationController
       {username: image.user.username,
         map: image.map,
         description: image.description,
-        tileset_name: image.tileset_name
+        tileset_name: image.tileset_name,
+        camera_type: image.camera_type
       }
     end
   end
