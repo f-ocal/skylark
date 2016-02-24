@@ -12,6 +12,6 @@
 !/log/.keep
 /tmp
 .idea*
-.idea/**
-.idea/Skylark.ini
+/.idea/**
+.idea/Skylark.iml
 .idea/workspace.xml
