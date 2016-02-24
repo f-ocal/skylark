@@ -1,12 +1,13 @@
 <div id='map_geo' class='map'></div>
-<div class='toggle-menu'>
-	<h1>Sidebar Menu!</h1>
-	<p>Ew this needs to be styled</p>
-	<p>BUT ITS ON THE MAP MOTHERFUCKERS</p>
-	<ul>
-	<% @images.each do |image| %>
-		<li><%= image.tileset_name %></li>
-		<p><%= image.description %></p>
-	<% end %>
-	</ul>
+  <div id='control' class='ui-opacity'>
+    <div id='handle' class='handle'></div>
+  </div>
+<div class='sidebar'>
+  <button id="close-sb" type="button" class="btn btn-default" aria-label="Left Align">
+    <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+  </button>
+
+  <div id="info"></div>
+
+
 </div>

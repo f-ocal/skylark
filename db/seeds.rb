@@ -1,11 +1,3 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
-#
-# Examples:
-#
-#   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
-#   Mayor.create(name: 'Emanuel', city: cities.first)
-
 require 'faker'
 
 user = User.new(
@@ -27,27 +19,29 @@ description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do e
 
   Image.create(
     user_id: 1,
-    tileset_name: "Upper Peninsula Michigan",
-    map: "karlaking2.8kwtn5pq",
+    tileset_name: "Heron's Head Park",
+    map: "karlaking2.bb43ty0h",
     date_taken: date,
-    description: description,
-    camera_type: "Landsat 5"
+    description: "Photo taken by the Skylark team in Bay View, Hunters Point. It was a sunny beautiful day, and we learned how to run DroneDeploy software for image registration and mosaiking.",
+    camera_type: "DJI 3 Phantom Advanced"
     )
 
   Image.create(
     user_id: 2,
-    tileset_name: "Farm",
-    map: "karlaking2.des6as2q",
+    tileset_name: "Polo Field",
+    map: "natasha-t.0222t4x6",
     date_taken: date,
     description: description,
     camera_type: "DJI Phantom"
     )
 
-  Image.create(
+   Image.create(
     user_id: 2,
-    tileset_name: "Fire Map",
-    map: "karlaking2.cb56po29",
+    tileset_name: "Lucas Valley, Marin, CA",
+    map: "karlaking2.2922mkfg",
     date_taken: date,
     description: description,
     camera_type: "DJI Phantom"
     )
+
+
