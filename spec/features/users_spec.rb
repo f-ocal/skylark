@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.feature "Users", type: :feature, js: true do
+RSpec.feature "Users", type: :feature do
   # let(:user) { FactoryGirl.create(:user)}
 
 
