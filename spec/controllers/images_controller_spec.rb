@@ -8,26 +8,47 @@ RSpec.describe ImagesController, type: :controller do
   end
 
   describe '#create' do
+    let(:tileset_name) { 'Fatma image' }
+    let(:description) { 'This is an image' }
+    let(:camera_type) { 'Canon Camera'}
+    let(:date_string) { '2016-12-02'}
     let(:params) do
       {
           image: {
-              tileset_name: 'name',
-              description:  'something',
-              camera_type:  'whatever',
-              date_taken:   '2016-12-02',
+              tileset_name: tileset_name,
+              description:  description,
+              camera_type:  camera_type,
+              date_taken:   date_string,
               image_file:   file_to_upload
           }
       }
     end
 
-    it 'calls the MapBoxService to upload files' do
-      expect_any_instance_of(MapBoxService).to receive(:upload_file).with(file_to_upload, 'name')
-      post :create, params
-    end
+    describe 'happy path' do
+      it 'calls the MapBoxService to upload files' do
+        expect_any_instance_of(MapBoxService).to receive(:upload_file).with(file_to_upload, tileset_name)
+        post :create, params
+      end
 
-    it 'redirects to images path' do
-      post :create, params
-      expect(response).to redirect_to images_path
+      it 'redirects to images path' do
+        post :create, params
+        expect(response).to redirect_to images_path
+      end
+
+      it 'sets the flash message' do
+        post :create, params
+        expect(flash[:success]).to eq ["You have successfully uploaded an image with title of #{tileset_name}!"]
+      end
+
+      it 'saves the image record' do
+        post :create, params
+
+        image = Image.last
+        expect(image.tileset_name).to eq tileset_name
+        expect(image.description).to eq description
+        expect(image.camera_type).to eq camera_type
+        expect(image.date_taken).to eq Date.parse(date_string)
+      end
     end
 
     describe 'validation errors' do
