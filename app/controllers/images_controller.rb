@@ -36,8 +36,8 @@ class ImagesController < ApplicationController
     @image.map     = @mapbox_image
 
     if @image.save
-      flash[:success] = ["You have successfully uploaded an image with title of #{@image.tileset_name}!"]
-      redirect_to images_path
+      flash[:success] = ["Upload in process for #{@image.tileset_name}. This may take a few minutes."]
+      redirect_to user_path(current_user)
     else
       flash[:error] = @image.errors.full_messages
       render 'new'
