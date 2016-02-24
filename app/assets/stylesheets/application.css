@@ -156,7 +156,7 @@ video#trash {
 #map_geo {
   z-index: -1;
 }
-.toggle-menu {
+.sidebar {
   height: 725px;
   width: 300px;
   background-color: #ddd;

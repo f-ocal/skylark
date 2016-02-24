@@ -1,77 +1,119 @@
 $(document).ready(function(){
-
+  // showBasicMap();
+  // showMarkerOnTheMap()
 
 //put access key in ENV variable
 L.mapbox.accessToken = 'pk.eyJ1Ijoic2hhd25zcGVhcnMiLCJhIjoiY2lrdDJ2ZHI1MDAyNHZvbTNhZ3B2bm41MCJ9.WdbcbGGIoMKx9B3sC9ODuQ';
 
 
-  var mapGeo = L.mapbox.map('map_geo', 'mapbox.satellite').setView([27.433,-1.700], 3);
+var mapGeo = L.mapbox.map('map_geo', 'mapbox.satellite').setView([27.433,-1.700], 3);
 
-   gon.images.forEach ( function (image) {
-      var layer = L.mapbox.tileLayer(image.map);
+  // $('.sidebar').hide();
 
-       layer.on('ready', function() {
-          var tileJSON = layer.getTileJSON();
-          var marker_lat = tileJSON.bounds[0]
-          var marker_long = tileJSON.bounds[1]
+  // gon.images.forEach ( function (image) {
+  //   var layer = L.mapbox.tileLayer(image.map);
+  //   console.log(image.map)
+  //   console.log(layer)
+  //  layer.on('ready', function() {
+  //     var tileJSON = layer.getTileJSON();
 
-          var marker = L.marker([(marker_long), marker_lat], {
-            icon: L.mapbox.marker.icon({
-              'marker-size': 'large',
-              'marker-color': '#cc33ff',
-              'marker-symbol': 'marker-stroked',
+  //     var north_bound = tileJSON.bounds[3]
+  //     var south_bound = tileJSON.bounds[1]
+  //     var east_bound = tileJSON.bounds[0]
+  //     var west_bound = tileJSON.bounds[2]
 
-            })
-          });
+  //     var marker_long = (north_bound + south_bound)/2
+  //     var marker_lat = (east_bound + west_bound)/2
 
-          layer.addTo(mapGeo)
-          marker.addTo(mapGeo)
+  //     var marker = L.marker([(marker_long), marker_lat], {
+  //       icon: L.mapbox.marker.icon({
+  //         'marker-size': 'large',
+  //         'marker-color': '#cc33ff',
+  //         'marker-symbol': 'marker-stroked',
+  //       })
+  //     });
 
-          marker.on('click', function(e){
-            // e.preventDefault();
-            mapGeo.setView([e.latlng.lat, e.latlng.lng], 11)
+  //     layer.addTo(mapGeo)
+  //     marker.addTo(mapGeo)
 
-            var tilesetName = image.tileset_name
-            var tlNameH2Tag = '<h2 class="sb-tl-name">' + tilesetName + '</h2>'
+  //     //Marker setup
+  //     marker.on('click', function(e){
+  //       mapGeo.setView([e.latlng.lat, e.latlng.lng], 14)
 
-            var username = image.username
-            var usernamePTag = '<p class="sb-username"> Mapmaker: ' + image.username + '</p>'
+  //       //Toggle Sidebar
+  //       $('.sidebar').show();
+  //       $('#close-sb').on('click', function(){
+  //         $('.sidebar').hide();
+  //       })
 
-            var cameraType = image.camera_type
-            var cameraTypePTag = '<p class="sb-camera-type"> Camera Type: ' + cameraType + '</p>'
 
-            var descr = image.description
-            var descrPTag = '<p class="sb-desc">' + descr + '</p>'
+  //       //Empty and Fill Info div with image information
+  //       var tilesetName = image.tileset_name
+  //       var tlNameH2Tag = '<h2 class="sb-tl-name">' + tilesetName + '</h2>'
 
-            $('#info').empty();
+  //       var username = image.username
+  //       var usernamePTag = '<p class="sb-username"> Mapmaker: ' + image.username + '</p>'
 
-            $('#info').append(tlNameH2Tag + usernamePTag + cameraTypePTag + descrPTag)
+  //       var cameraType = image.camera_type
+  //       var cameraTypePTag = '<p class="sb-camera-type"> Camera Type: ' + cameraType + '</p>'
 
-          });
+  //       var descr = image.description
+  //       var descrPTag = '<p class="sb-desc">' + descr + '</p>'
 
-              mapGeo.on('zoomend', function(){
-                if(mapGeo.getZoom() >= 8){
-                  console.log("zoooooooom")
-                  marker.setOpacity(0);
-                }
-                else{
-                  marker.setOpacity(1);
-                }
+  //       $('#info').empty();
+  //       $('#info').append(tlNameH2Tag + usernamePTag + cameraTypePTag + descrPTag)
+  //       });
 
-              })
+  //       //Add and Remove marker on zoom
+  //         mapGeo.on('zoomend', function(){
+  //           if(mapGeo.getZoom() >= 10){
+  //             console.log("zoooooooom")
+  //             marker.setOpacity(0);
+  //           } else{
+  //             marker.setOpacity(1);
+  //           }
+  //         })
 
-        });
-
-      });
+  //         //Opacity handle
+  //         // opacityHandle(marker);
+  //       });
+  //     });
 
   });
+
+  // var opacityHandle = function(marker){
+  //   var handle = $('#handle');
+  //   start = false;
+  //   startTop;
+
+  //   document.onmousemove = function(e){
+  //     if(!start) return;
+  //     //Adjust Controll
+  //     handle.style.top = Math.max(-5, Math.min(195, startTop + parseInt(e.clientY, 10) - start)) + 'px';
+  //     //Adjust opacity
+  //     marker.setOpacity(1 - (handle.offsetTop / 200));
+  //   }
+
+  //   handle.onmousedown = function(e) {
+  //   // Record initial positions.
+  //   start = parseInt(e.clientY, 10);
+  //   startTop = handle.offsetTop - 5;
+  //   return false;
+  //   };
+
+  //   document.onmouseup = function(e) {
+  //       start = null;
+  //   };
+
+  // }
 
 // Images Index
   //loads all markers, global view - DONE
   // Sidebar
       //hide on load
-      //appear on click of marker, with clicked image info; upon clicking another marker, previous marker info disappears
+      //appear on click of marker, with clicked image info; upon clicking another marker, previous marker info disappears - DONE
       //toggle on and off on click
+
 
 
 
