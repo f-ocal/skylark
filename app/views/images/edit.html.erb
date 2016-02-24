@@ -1,4 +1,23 @@
 
 <h1> Edit Image Info </h1>
 
-<h4>(dummy page!)</h4>
+ <%= form_for @image do |f| %>
+
+    <div class="field">
+      <%= f.label :date_taken %>
+      <%= f.text_field :date_taken, :placeholder => "#{DateTime.now.to_date}" %>
+    </div>
+
+    <div class="field">
+      <%= f.label :description %>
+      <%= f.text_field :description, :placeholder => "Description" %>
+    </div>
+
+    <div class="field">
+      <%= f.label :camera_type %>
+      <%= f.text_field :camera_type, :placeholder => "DJI Phantom 3 Professional" %>
+    </div>
+
+    <%= f.submit 'Update', class: 'btn btn-primary', :id => 'update-submit' %>
+
+ <% end %>
