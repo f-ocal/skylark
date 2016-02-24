@@ -33,13 +33,24 @@
   box-sizing: border-box;
   font-size: 14px;
 }
-
 .sidebar {
   background-color: #eee;
   float: right;
   height: 600px;
   width: 300px;
-  padding: 20px;
+}
+#close-sb {
+  padding: 1px;
+}
+#map_geo {
+  z-index: -1;
+}
+.toggle-menu {
+  height: 725px;
+  width: 300px;
+  background-color: #ddd;
+  float: right;
+  overflow: scroll;
 }
 
 /*Opacity Handle*/

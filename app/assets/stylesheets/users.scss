@@ -3,13 +3,30 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 /* user profile page */
-.user-profile-picture {
-    border-radius: 50%;
+#user-box {
+  padding-top: 30px;
+}
+#user-profile-picture {
     width: 200px;
     height: 200px;
 }
-.user-info{
-  text-align: center;
+#user-info{
+  background-color: #eee;
+  padding: 30px 20px 30px 20px;
+  font-family: 'Lato';
+  box-shadow: 1px 1px 1px #888888;
+  width: 200px;
+}
+.headers {
+  font-family: 'Lato';
+  font-size: 30px;
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 15px;
+}
+#bold {
+  font-weight: 700;
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 10px;
 }
 .username-email {
   font-size: 20px;
@@ -17,6 +34,7 @@
   font-weight: 200;
   color: #000;
   margin-top: 20px;
+  padding-top: 10px;
 }
 #welcome-user {
   font-size: 60px;
@@ -28,16 +46,11 @@
 .uploaded-image {
   border-bottom: 1px solid #ddd;
 }
-#map_geo {
-  z-index: -1;
+.image-avatar {
+  width: 200px;
 }
-.toggle-menu {
-  height: 725px;
-  width: 300px;
-  background-color: #ddd;
-  float: right;
-  overflow: scroll;
-}
+
+
 
 
 /* user login page */
