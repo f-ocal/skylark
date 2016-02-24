@@ -1,3 +1,38 @@
 // Place all the styles related to the welcome controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+/* welcome index */
+video#splash-video {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  min-width: 100%;
+  min-height: 100%;
+  widthh: auto;
+  height: auto;
+  z-index: -100;
+  -ms-transform: translateX(-50%) translateY(-50%);
+  -moz-transform: translateX(-50%) translateY(-50%);
+  -webkit-transform: translateX(-50%) translateY(-50%);
+  transform: translateX(-50%) translateY(-50%);
+}
+.div-title{
+	text-align: center;
+	width: 50%;
+    margin: 0 auto;
+	color: #fff;
+	font-family: 'Open Sans', sans-serif;
+	font-weight: 800;
+	font-size: 8em;
+	opacity: 1;
+}
+#welcome {
+	font-family: 'Lato', sans-serif;
+	font-weight: 200;
+}
+.splash-div {
+	margin-top: 75px;
+	padding: 50px;
+	background-color: rgba(0, 0, 0, 0.2);
+}
