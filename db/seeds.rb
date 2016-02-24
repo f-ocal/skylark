@@ -21,7 +21,7 @@ description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do e
     user_id: 1,
     tileset_name: "Heron's Head Park",
     map: "karlaking2.bb43ty0h",
-    date_taken: "2016-21-02",
+    date_taken: date,
     description: "Photo taken by the Skylark team in Bay View, Hunters Point. It was a sunny beautiful day, and we learned how to run DroneDeploy software for image registration and mosaiking.",
     camera_type: "DJI 3 Phantom Advanced"
     )
