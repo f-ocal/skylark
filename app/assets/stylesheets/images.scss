@@ -41,3 +41,35 @@
   width: 300px;
   padding: 20px;
 }
+
+/*Opacity Handle*/
+.ui-opacity {
+  background:#FFF;
+  position:absolute;
+  left:10px;
+  top:140px;
+  height:200px;
+  width:28px;
+  border:1px solid rgba(0,0,0,0.4);
+  border-radius:3px;
+  z-index:1000;
+}
+
+.ui-opacity .handle {
+  position:absolute;
+  background:#404040;
+  left:0;
+  top:20px;
+  width:26px;
+  height:10px;
+  border-radius:1px;
+  cursor:pointer;
+  cursor:ns-resize;
+}
+
+.ui-opacity .handle:hover {
+  background:#303030;
+}
+
+
+
