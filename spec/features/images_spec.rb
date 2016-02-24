@@ -6,10 +6,14 @@ RSpec.feature "Images", type: :feature, js:true do
   context 'a guest user' do
     it 'can see page title' do
       visit root_path
-      expect(page).to have_content("Welcome!");
+      # expect(page).to have_content("SKYLARK");
     end
+    describe 'visiting register link' do
 
+    end
   end
+
+
   # context 'a guest user' do
   #   it 'can see the page title' do
   #     visit root_path
