@@ -30,8 +30,8 @@ class ImagesController < ApplicationController
   end
 
   def create
-    @mapbox_image  = MapBoxService.new.upload_file(params[:image][:image_file], params[:image][:tileset_name])
-    @image         = Image.new(image_params)
+    @mapbox_image  = MapBoxService.new.upload_file(image_params[:image_file], image_params[:tileset_name])
+    @image         = Image.new(image_params.reject!{|k,_| k == 'image_file'})
     @image.user_id = current_user.id
     @image.map     = @mapbox_image
 
@@ -42,6 +42,10 @@ class ImagesController < ApplicationController
       flash[:error] = @image.errors.full_messages
       render 'new'
     end
+
+  rescue ActionController::ParameterMissing
+    flash[:error] = ['Something went wrong. Please try again.']
+    render 'new'
   end
 
   def update
@@ -66,7 +70,7 @@ class ImagesController < ApplicationController
   private
 
   def image_params
-    params.require(:image).permit(:tileset_name, :description, :date_taken, :camera_type)
+    params.require(:image).permit(:tileset_name, :description, :date_taken, :camera_type, :image_file)
   end
 
   def set_image

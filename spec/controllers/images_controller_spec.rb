@@ -1,40 +1,63 @@
 require 'rails_helper'
 
-#  DON'T DELETE THIS CONTROLLER TESTS - IT'S WORKING IN PROGRESS****
+RSpec.describe ImagesController, type: :controller do
+  let(:user) { User.create(username: 'bob', email: 'someone@gmail.com', password: 'something') }
+  let(:file_to_upload) { fixture_file_upload('export.tiff', 'image/tiff') }
+  before do
+    sign_in user
+  end
 
-# RSpec.describe ImagesController, type: :controller do
-#   let(:user) { User.create(username: 'bob', email: 'someone@gmail.com', password: 'something') }
-#   let(:file_to_upload) {fixture_file_upload('export.tiff', 'image/tiff')}
-#   before do
-#     sign_in user
-#   end
-#   describe '#create' do
-#     let(:params) { {image: {tileset_name: 'name', description: 'something', camera_type: 'whatever', date_taken: '2016-12-02', image_file: file_to_upload}} }
-#
-#     it 'calls the MapBoxService to upload files' do
-#       expect_any_instance_of(MapBoxService).to receive(:upload_file).with(file_to_upload, 'name')
-#       post :create, params
-#     end
-#
-#     it 'redirects to images path' do
-#       post :create, params
-#       expect(response).to redirect_to images_path
-#     end
-#
-#     describe 'validation errors' do
-#       it 'renders new' do
-#         post :create
-#         expect(response).to render_template '/images/new'
-#       end
-#
-#     end
-#   end
-# end
+  describe '#create' do
+    let(:params) do
+      {
+          image: {
+              tileset_name: 'name',
+              description:  'something',
+              camera_type:  'whatever',
+              date_taken:   '2016-12-02',
+              image_file:   file_to_upload
+          }
+      }
+    end
 
+    it 'calls the MapBoxService to upload files' do
+      expect_any_instance_of(MapBoxService).to receive(:upload_file).with(file_to_upload, 'name')
+      post :create, params
+    end
 
+    it 'redirects to images path' do
+      post :create, params
+      expect(response).to redirect_to images_path
+    end
 
+    describe 'validation errors' do
+      it 'renders new if image node is missing' do
+        post :create
+        expect(response).to render_template 'images/new'
+      end
 
+      it 'sets a flash message if image node is missing' do
+        post :create
+        expect(flash[:error]).to eq ['Something went wrong. Please try again.']
+      end
 
+      it 'renders new if image fails activerecord validation' do
+        allow_any_instance_of(Image).to receive(:save).and_return(false)
+        post :create, params
+        expect(response).to render_template 'images/new'
+      end
+
+      it 'sets a flash message if image node is missing' do
+        allow_any_instance_of(Image).to receive(:save).and_return(false)
+        allow_any_instance_of(Image).to receive(:errors).and_return(double(full_messages: ['error']))
+
+        post :create, params
+        expect(flash[:error]).to eq ['error']
+      end
+
+    end
+  end
+end
 
 
 # Jordan's example code
