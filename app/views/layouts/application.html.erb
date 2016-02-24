@@ -8,6 +8,7 @@
   <%= include_gon %>
   <script src="http://code.jquery.com/jquery-1.12.0.min.js"></script>
   <script src='https://api.tiles.mapbox.com/mapbox.js/v2.2.4/mapbox.js'></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
   <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,800,800italic' rel='stylesheet' type='text/css'>
   <link href='https://fonts.googleapis.com/css?family=Lato:400,300,200,100,100italic,300italic,400italic' rel='stylesheet' type='text/css'>
   <link href='https://api.tiles.mapbox.com/mapbox.js/v2.2.4/mapbox.css' rel='stylesheet' />
@@ -70,7 +71,10 @@
   <% end %>
 
   <% if flash[:success] %>
-    <div class="alert alert-success">
+    <div class="alert alert-success alert-dismissible" role='alert'>
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
       <% flash[:success].each do |success| %>
         <p>
           <%= success %>

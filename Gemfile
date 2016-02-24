@@ -1,4 +1,4 @@
- source 'https://rubygems.org'
+source 'https://rubygems.org'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.5'
@@ -26,8 +26,6 @@ gem 'aws-sdk-rails'
 gem 'gon'
 gem 'httparty'
 
-gem 'client_side_validations'
-
 gem 'devise'
 gem 'faker'
 
@@ -47,6 +45,10 @@ group :development, :test do
   gem 'capybara'
   gem 'selenium-webdriver'
   gem 'database_cleaner'
+end
+
+group :test do
+  gem 'rake'
 end
 
 group :development do
