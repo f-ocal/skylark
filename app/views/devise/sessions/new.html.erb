@@ -1,9 +1,9 @@
 <div class='row col-md-12'>
   <div class='form col-md-4 col-md-offset-4'>
     <h2 class='field'>Log in</h2>
-    <%= form_for(resource, as: resource_name, url: session_path(resource_name), html: {class: 'register-form'}) do |f| %>
+    <%= form_for(resource, as: resource_name, url: session_path(resource_name), html: {class: 'register-form'}, data: {parsley_validate: true}) do |f| %>
       <div class="field">
-        <%= f.email_field :email, autofocus: true, :placeholder => "email" %>
+        <%= f.email_field :email, autofocus: true, :placeholder => "email", required: true %>
       </div>
 
       <div class="field">
