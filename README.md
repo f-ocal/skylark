@@ -6,9 +6,9 @@ Master:
 Development:
 ![badge](https://travis-ci.org/f-ocal/Skylark.svg?branch=development)
 
-# Team Members
-## Karla King
-## Fatma Ocal
-## Natasha Thapliyal
-## Shawn Spears
-## Micheal Whelpley
+## Team Members
+### Karla King
+### Fatma Ocal
+### Natasha Thapliyal
+### Shawn Spears
+### Micheal Whelpley
