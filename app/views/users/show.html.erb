@@ -14,10 +14,31 @@
     </div>
   </div>
 
-  <div class='col-md-6 col-md-offset-1'>
-    <h1 id='welcome-user'>Welcome, <%= @user.username %>!</h1>
-    <h1 class='headers'>Uploaded Images</h1>
-    <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."</p>
+  <div class='col-md-9'>
+    <div class='col-md-offset-1'>
+      <h1 id='welcome-user'>Welcome, <%= @user.username %>!</h1>
+    </div>
+    <div class='uploaded-images'>
+      <div class='col-md-offset-1'>
+        <h1 class='headers'>Uploaded Images</h1>
+      </div>
+      <% @user.images.each do |image| %>
+      <div class='individual-image col-md-12'>
+        <h1 class='col-md-offset-1'><%= image.tileset_name %></h1>
+        <div class='col-md-3 col-md-offset-1'>
+          <img class="image-avatar" src="<%= asset_path('karlaking.jpg') %>"/>
+        </div>
+
+        <div class='col-md-4'>
+          <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."</p>
+        </div>
+
+        <div class='col-md-3'>
+          <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."</p>
+        </div>
+      </div>
+      <% end %>
+    </div>
   </div>
 </div>
 
