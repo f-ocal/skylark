@@ -7,6 +7,14 @@ RSpec.feature "Images", type: :feature do
       visit root_path
       expect(page).to have_content('SKYLARK')
     end
+
+    it 'can visit the Register link' do
+      visit root_path
+      expect(page).to have_content('Register')
+      click_link('Register')
+      expect(page).to have_content('Sign up')
+    end
+
   end
 
 end
