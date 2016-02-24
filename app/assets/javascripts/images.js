@@ -14,9 +14,14 @@ var mapGeo = L.mapbox.map('map_geo', 'mapbox.satellite').setView([27.433,-1.700]
   opacityHandle(gon.images);
 
   gon.images.forEach ( function (image) {
-    console.log(image)
-    var layer = L.mapbox.tileLayer(image.map);
-    layer.on('ready', function() {
+
+    var layer = L.mapbox.tileLayer(image.map, {
+      format: 'png128'
+    });
+    console.log(image.map)
+    console.log(layer)
+   layer.on('ready', function() {
+
       var tileJSON = layer.getTileJSON();
 
       var north_bound = tileJSON.bounds[3]
