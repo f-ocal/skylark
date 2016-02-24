@@ -10,11 +10,13 @@ var mapGeo = L.mapbox.map('map_geo', 'mapbox.satellite').setView([27.433,-1.700]
 
   $('.sidebar').hide();
 
+   //Opacity handle
+  opacityHandle(gon.images);
+
   gon.images.forEach ( function (image) {
+    console.log(image)
     var layer = L.mapbox.tileLayer(image.map);
-    console.log(image.map)
-    console.log(layer)
-   layer.on('ready', function() {
+    layer.on('ready', function() {
       var tileJSON = layer.getTileJSON();
 
       var north_bound = tileJSON.bounds[3]
@@ -36,18 +38,18 @@ var mapGeo = L.mapbox.map('map_geo', 'mapbox.satellite').setView([27.433,-1.700]
       layer.addTo(mapGeo)
       marker.addTo(mapGeo)
 
-  //     //Marker setup
+    //Marker setup
       marker.on('click', function(e){
         mapGeo.setView([e.latlng.lat, e.latlng.lng], 14)
 
-  //       //Toggle Sidebar
+         //Toggle Sidebar
         $('.sidebar').show();
         $('#close-sb').on('click', function(){
           $('.sidebar').hide();
         })
 
 
-  //       //Empty and Fill Info div with image information
+       //Empty and Fill Info div with image information
         var tilesetName = image.tileset_name
         var tlNameH2Tag = '<h2 class="sb-tl-name">' + tilesetName + '</h2>'
 
@@ -64,48 +66,46 @@ var mapGeo = L.mapbox.map('map_geo', 'mapbox.satellite').setView([27.433,-1.700]
         $('#info').append(tlNameH2Tag + usernamePTag + cameraTypePTag + descrPTag)
         });
 
-  //       //Add and Remove marker on zoom
+         //Add and Remove marker on zoom
           mapGeo.on('zoomend', function(){
             if(mapGeo.getZoom() >= 10){
-              console.log("zoooooooom")
               marker.setOpacity(0);
-            } else{
+            } else {
               marker.setOpacity(1);
             }
-          })
-
-  //         //Opacity handle
-  //         // opacityHandle(marker);
+          });
         });
       });
 
   });
 
-  // var opacityHandle = function(marker){
-  //   var handle = $('#handle');
-  //   start = false;
-  //   startTop;
+  var opacityHandle = function(images){
+    var handle = document.getElementById('handle'),
+    start = false,
+    startTop;
 
-  //   document.onmousemove = function(e){
-  //     if(!start) return;
-  //     //Adjust Controll
-  //     handle.style.top = Math.max(-5, Math.min(195, startTop + parseInt(e.clientY, 10) - start)) + 'px';
-  //     //Adjust opacity
-  //     marker.setOpacity(1 - (handle.offsetTop / 200));
-  //   }
+    document.onmousemove = function(e){
+      if(!start) return;
+      //Adjust Control
+      handle.style.top = Math.max(-5, Math.min(195, startTop + parseInt(e.clientY, 10) - start)) + 'px';
+      //Adjust opacity -- loop through images
 
-  //   handle.onmousedown = function(e) {
-  //   // Record initial positions.
-  //   start = parseInt(e.clientY, 10);
-  //   startTop = handle.offsetTop - 5;
-  //   return false;
-  //   };
+        image_layer.setOpacity(1 - (handle.offsetTop / 200));
+    }
 
-  //   document.onmouseup = function(e) {
-  //       start = null;
-  //   };
+    handle.onmousedown = function(e) {
+      // Record initial positions.
+      console.log("working??")
+      start = parseInt(e.clientY, 10);
+      startTop = handle.offsetTop - 5;
+      return false;
+    };
 
-  // }
+    document.onmouseup = function(e) {
+        start = null;
+    };
+
+  }
 
 // Images Index
   //loads all markers, global view - DONE
