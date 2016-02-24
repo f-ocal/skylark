@@ -1,4 +1,4 @@
-source 'https://rubygems.org'
+ source 'https://rubygems.org'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.5'
@@ -31,7 +31,6 @@ gem 'client_side_validations'
 gem 'devise'
 gem 'faker'
 
-gem 'capybara'
 gem 'puma'
 
 # Use ActiveModel has_secure_password
@@ -45,6 +44,9 @@ group :development, :test do
   gem 'byebug'
   gem 'rspec-rails'
   gem 'factory_girl_rails', "~> 4.0"
+  gem 'capybara'
+  gem 'selenium-webdriver'
+  gem 'database_cleaner'
 end
 
 group :development do
