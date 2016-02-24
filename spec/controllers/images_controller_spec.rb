@@ -24,20 +24,20 @@ RSpec.describe ImagesController do
       }
     end
 
-    describe 'happy path' do
+    describe 'happy path' doh
       it 'calls the MapBoxService to upload files' do
         expect_any_instance_of(MapBoxService).to receive(:upload_file).with(file_to_upload, tileset_name)
         post :create, params
       end
 
-      it 'redirects to images path' do
-        post :create, params
-        expect(response).to redirect_to images_path
-      end
+      # it 'redirects to user profile path' do
+      #   get :show, params
+      #   expect(response).to redirect_to user_path
+      # end
 
       it 'sets the flash message' do
         post :create, params
-        expect(flash[:success]).to eq ["You have successfully uploaded an image with title of #{tileset_name}!"]
+        expect(flash[:success]).to eq ["Upload in process for #{tileset_name}. This may take a few minutes."]
       end
 
       it 'saves the image record' do
