@@ -11,7 +11,9 @@ var mapGeo = L.mapbox.map('map_geo', 'mapbox.satellite').setView([27.433,-1.700]
   $('.sidebar').hide();
 
   gon.images.forEach ( function (image) {
-    var layer = L.mapbox.tileLayer(image.map);
+    var layer = L.mapbox.tileLayer(image.map, {
+    format: 'png128'
+});
     console.log(image.map)
     console.log(layer)
    layer.on('ready', function() {
