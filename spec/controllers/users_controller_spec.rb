@@ -1,6 +1,25 @@
 require 'rails_helper'
 
 RSpec.describe UsersController, type: :controller do
+  # let(:user) { FactoryGirl.create :user}
+
+#  describe 'show action' do
+# # Failing! both!
+#   it 'should load the user' do
+#     get :show
+#     expect(response.status).to eq 200
+#     expect(response).to render_template(:show)
+#   end
+#  end
+
+  #  describe 'GET #show' do
+  #   before(:each) do
+  #     get :show, id: :user.id
+  #   end
+  #   it "assigns the user instance variable" do
+  #     expect(assigns(:user)).to be_a(User)
+  #   end
+  # end
 
 end
 
