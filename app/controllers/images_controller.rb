@@ -4,7 +4,8 @@ require 'open-uri'
 class ImagesController < ApplicationController
 
   before_action :authenticate_user!, only: [:new, :create, :upvote]
-  before_action :set_image, only: [:show, :edit, :update, :destroy, :upvote]
+  before_action :set_image, only: [:show, :edit, :update, :destroy, :upvote, :like_form]
+  skip_before_action :verify_authenticity_token
 
   def index
     @images = Image.all
@@ -74,12 +75,19 @@ class ImagesController < ApplicationController
     redirect_to user_path(current_user)
   end
 
+  def like_form
+    if request.xhr?
+      render '_upvote_form', locals: { image: @image }, layout: false
+    end
+  end
+
   def upvote
     @image.liked_by current_user
-    # redirect or render?
-    # this redirect reloads the map - how to get back to sidebar view? Maybe this has to the a JS thing ...
-    redirect_to images_path
-    # should AJAX this!
+    if request.xhr?
+       render '_upvote_form', locals: { image: @image }, layout: false
+    else
+      redirect_to images_path
+    end
   end
 
 
