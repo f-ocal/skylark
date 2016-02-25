@@ -1,6 +1,6 @@
 <!-- Ignore this for now!! -->
 
-<!-- 
+
 <div class='row col-md-12'>
 
   <div class='col-md-2 col-md-offset-1' id='user-box'>
@@ -32,17 +32,25 @@
         </div>
 
         <div class='col-md-4'>
-          <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."</p>
+          <p>Description: <%= image.description %></p>
         </div>
 
         <div class='col-md-3'>
-          <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."</p>
+          <ul>
+            <li>Date taken: <%= image.date_taken %></li>
+            <li>Camera type: <%= image.camera_type %></li>
+          </ul>
+          <%= link_to 'Edit Image info', edit_image_path(image), :class => "btn btn-danger"  %>
+          <br>
+          <br>
+          <%= link_to 'Delete item', image_path(image), method: :delete, :class => "btn btn-danger" %>
+          <!--     <p>(Note: the above link will not actually delete the image from Mapbox, just from the display.)</p> -->
         </div>
       </div>
       <% end %>
     </div>
   </div>
-</div> -->
+</div>
 
 
 <div class='container'>
