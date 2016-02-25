@@ -46,7 +46,6 @@ end
 
 group :test do
   gem 'rake'
-  gem 'capybara-webkit'
   gem 'rspec-rails'
   gem 'capybara'
   gem 'selenium-webdriver'
