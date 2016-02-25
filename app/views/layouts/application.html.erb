@@ -86,10 +86,14 @@
 
     <%if flash[:alert] %>
       <div class="alert alert-warning">
-        <% flash[:alert].each do |alert| %>
-          <p>
-            <%= alert %>
-          </p>
+        <% if flash[:alert].is_a? Array %>
+          <% flash[:alert].each do |alert| %>
+            <p>
+              <%= alert %>
+            </p>
+          <% end %>
+        <% else %>
+          <p> <%= flash[:alert] %> </p>
         <% end %>
       </div>
       </div>

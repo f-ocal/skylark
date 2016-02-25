@@ -31,8 +31,8 @@ RSpec.describe ImagesController do
       end
 
       it 'redirects to user profile path' do
-        get :show, params
-        expect(response).to redirect_to user_path
+        get :create, params
+        expect(response).to redirect_to user_path(user)
       end
 
       it 'sets the flash message' do
