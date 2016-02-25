@@ -51,23 +51,70 @@
 
 /*Sidebar*/
 
-.panel-heading a:after {
-    font-family:'Glyphicons Halflings';
-    content:"\e114";
-    float: right;
-    color: grey;
+.mini-submenu{
+  display:none;  
+  background-color: rgba(0, 0, 0, 0);  
+  border: 1px solid rgba(0, 0, 0, 0.9);
+  border-radius: 4px;
+  padding: 9px;  
+  /*position: relative;*/
+  width: 42px;
 }
-.panel-heading a.collapsed:after {
-    content:"\e080";
+
+.mini-submenu:hover{
+  cursor: pointer;
+}
+
+.mini-submenu .icon-bar {
+  border-radius: 1px;
+  display: block;
+  height: 2px;
+  width: 22px;
+  margin-top: 3px;
+}
+.mini-submenu .icon-bar {
+  background-color: #fff;
+  border: 1px solid #fff;
+}
+
+#slide-submenu{
+  background: rgba(0, 0, 0, 0.45);
+  display: inline-block;
+  padding: 0 8px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.list-group-item {
+  background-color: black;
+}
+
+.image-info-group {
+  background-color: #eee;
+  width: 300px;
+  border-radius: 10px;
+  box-sizing: border-box;
+}
+
+
+#info {
+  padding: 20px;
 }
 
 .sidebar {
-  background-color: #eee;
   float: right;
-  height: 600px;
-  width: 300px;
+  margin-top: 30px;
+  margin-right: 30px;
 }
-
+.mini-submenu {
+  border: 1px solid #fff;
+}
+.upvoter {
+  background-color: transparent;
+}
+.btn-default .badge {
+  background-color: #fff;
+}
 
 /*Opacity Handle*/
 .ui-opacity {
