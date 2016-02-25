@@ -23,7 +23,7 @@ description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do e
     map: "karlaking2.bb43ty0h",
     date_taken: date,
     description: "Photo taken by the Skylark team in Bay View, Hunters Point. It was a sunny beautiful day, and we learned how to run DroneDeploy software for image registration and mosaiking.",
-    camera_type: "DJI 3 Phantom Advanced"
+    camera_type: "DJI Phantom 3 Advanced"
     )
 
   Image.create(
@@ -32,7 +32,7 @@ description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do e
     map: "natasha-t.0222t4x6",
     date_taken: date,
     description: description,
-    camera_type: "DJI Phantom"
+    camera_type: "DJI Phantom 3 Advanced"
     )
 
    Image.create(
@@ -41,14 +41,14 @@ description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do e
     map: "karlaking2.2922mkfg",
     date_taken: date,
     description: description,
-    camera_type: "DJI Phantom"
+    camera_type: "DJI Phantom 3 Advanced"
     )
 
   Image.create(
     user_id: 1,
     tileset_name: "King Fire, Eldorado National Fores",
-    map: "karlaking2.bjssl047",
-    date_taken: 2016-02-02,
+    map: "f-ocal.ve3n66sz3mguox83wkhqm1lic",
+    date_taken: "2016-02-02",
     description: description,
     camera_type: "Landsat Image"
     )
