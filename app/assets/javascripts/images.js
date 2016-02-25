@@ -74,9 +74,9 @@ var addMarkerstoLayer = function(map, layer, image){
 
          //Toggle Sidebar
          $('.sidebar').show();
-         $('#close-sb').on('click', function(){
-          $('.sidebar').hide();
-        });
+        //  $('#close-sb').on('click', function(){
+        //   $('.sidebar').hide();
+        // });
 
          //Add and Remove marker on zoom
          map.on('zoomend', function(){
