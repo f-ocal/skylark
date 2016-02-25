@@ -43,7 +43,7 @@ var addMarkerstoLayer = function(map, layer, image){
       var marker = L.marker([(marker_long), marker_lat], {
         icon: L.mapbox.marker.icon({
           'marker-size': 'large',
-          'marker-color': '#cc33ff',
+          'marker-color': '#ED2152',
           'marker-symbol': 'marker-stroked',
         })
       });
