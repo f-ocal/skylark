@@ -28,23 +28,22 @@
   border-bottom: 1px solid #ddd;
   padding-bottom: 10px;
 }
-.username-email {
-  font-size: 20px;
+.bold {
+  font-weight: 700;
+}
+#username-email {
+  font-size: 15px;
   font-family: 'Lato', sans-serif;
-  font-weight: 200;
+  font-weight: 300;
   color: #000;
   margin-top: 20px;
-  padding-top: 10px;
 }
 #welcome-user {
   font-size: 60px;
   font-family: 'Lato', sans-serif;
   font-weight: 300;
-  color: #000;
+  color: #363636;
   margin-bottom: 30px;
-}
-.uploaded-image {
-  border-bottom: 1px solid #ddd;
 }
 .image-avatar {
   width: 200px;
@@ -54,11 +53,52 @@
   width: 150px;
 }
 .image-details {
+  color: #000;
   background-color: #eee;
   padding-top: 20px;
   padding-bottom: 20px;
+  margin-left: 30px;
 }
-
+#banner-image {
+  background-color: #2A2F36;
+  position: absolute;
+  z-index: -1;
+  width: 100%;
+  height: 120px;
+}
+#banner-image img {
+  width: 100%;
+  height: 120px;
+}
+.uploaded-images {
+  margin-top: 40px;
+}
+.individual-image {
+  padding: 20px;
+}
+.tileset-name {
+  padding-bottom: 10px;
+  font-family: 'Lato', sans-serif;
+}
+#go-to-map {
+  font-size: 15px;
+  color: #fff;
+  text-align: center;
+  margin-top: 50px;
+  padding: 30px 0 30px 0;
+  background-color: #363636;
+}
+#new-upload {
+  font-size: 15px;
+  color: #fff;
+  text-align: center;
+  margin-top: 40px;
+  padding: 30px 0 30px 0;
+  background-color: #363636;
+}
+.upvote-button {
+  padding-top: 10px;
+}
 
 
 
