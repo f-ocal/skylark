@@ -85,12 +85,18 @@
   cursor: pointer;
 }
 
+.list-group-item {
+  background-color: black;
+}
+
 .image-info-group {
   background-color: #eee;
   width: 300px;
   border-radius: 10px;
   box-sizing: border-box;
 }
+
+
 #info {
   padding: 20px;
 }
@@ -109,6 +115,7 @@
 .btn-default .badge {
   background-color: #fff;
 }
+
 /*Opacity Handle*/
 .ui-opacity {
   background:#FFF;
