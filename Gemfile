@@ -40,19 +40,18 @@ gem 'acts_as_votable', '~> 0.10.0'
 # gem 'capistrano-rails', group: :development
 
 group :development, :test do
-  # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
-  gem 'rspec-rails'
   gem 'factory_girl_rails', "~> 4.0"
-  gem 'capybara'
-  gem 'selenium-webdriver'
-  gem 'database_cleaner'
-  gem 'rspec-rails'
-  gem 'byebug'
 end
 
 group :test do
   gem 'rake'
+  gem 'capybara-webkit'
+  gem 'rspec-rails'
+  gem 'capybara'
+  gem 'selenium-webdriver'
+  gem 'database_cleaner'
+  gem 'rspec-rails'
 end
 
 group :development do
