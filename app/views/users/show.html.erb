@@ -35,11 +35,12 @@
           <p>Description: <%= image.description %></p>
         </div>
 
-        <div class='col-md-3'>
-          <ul>
-            <li>Date taken: <%= image.date_taken %></li>
-            <li>Camera type: <%= image.camera_type %></li>
-          </ul>
+        <div class='image-details col-md-3'>
+          <p class='bold'>Date taken</p>
+          <p><%= image.date_taken %></p>
+          </p>
+          <p class='bold'>Camera type</p>
+          <p><%= image.camera_type %></p>
           <%= link_to 'Edit Image info', edit_image_path(image), :class => "btn btn-danger"  %>
           <br>
           <br>
