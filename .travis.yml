@@ -5,4 +5,6 @@ services:
   - postgresql
 before_script:
   - psql -c 'create database skylark_test;' -U postgres
-  - xvfb-run -a bundle exec spec
+  - "export DISPLAY=:99.0"
+  - "sh -e /etc/init.d/xvfb start"
+  - sleep 3 # give xvfb some time to start
