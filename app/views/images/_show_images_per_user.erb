@@ -19,12 +19,6 @@
     <br>
     <!-- Experimental code! Upvote button -->
     <!-- adds a user vote (on their own image), redirects to main map -->
-    <%= link_to like_image_path(image), class: "like", method: :put do %>
-      <button type="button" class="btn btn-info">
-        <span class='glyphicon glyphicon-thumbs-up glyphicon-align-center'></span>
-        <span class='badge'><%= image.get_upvotes.size %></span>
-      </button>
-    <% end %>
     <br>
     <%= link_to 'Edit Image info', edit_image_path(image), :class => "btn btn-danger"  %>
     <br>

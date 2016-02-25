@@ -69,8 +69,11 @@ var addMarkerstoLayer = function(map, layer, image){
        var descr = image.description;
        var descrPTag = '<p class="sb-desc">' + descr + '</p>';
 
+       var voteCount = image.upvotes
+       var voteCountPTag = '<p class="sb-votecount">' + voteCount + '</p>'
+
        $('#info').empty();
-       $('#info').append(tlNameH2Tag + usernamePTag + cameraTypePTag + descrPTag);
+       $('#info').append(tlNameH2Tag + usernamePTag + cameraTypePTag + descrPTag + voteCountPTag);
 
          //Toggle Sidebar
          $('.sidebar').show();
