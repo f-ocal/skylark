@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.feature "Images", type: :feature, js:true do
-  let(:user) { User.create(username: 'skylark', email: 'someone@gmail.com', password: 'something') }
+  let(:user) { User.create(username: 'skylark', email: 'skylark@gmail.com', password: 'skylark1') }
 
   context 'a guest user' do
     it 'visits home page' do
@@ -17,18 +17,16 @@ RSpec.feature "Images", type: :feature, js:true do
     end
 
     describe 'logging in' do
-      let(:user) { User.create(username: 'skylark', email: 'someone@gmail.com', password: 'something') }
+      let(:user) { User.create(username: 'skylark', email: 'skylark@gmail.com', password: 'skylark1') }
 
       it 'can log in and see a welcome message' do
         visit root_path
         expect(page).to have_content('Login')
         click_link('Login')
         expect(page).to have_content('Log in')
-        email    = 'someone@gmail.com'
-        password = 'something'
-        fill_in 'user_email', with: email
-        fill_in 'user_password', with: password
-        click_button 'Log in'
+        fill_in 'user_email', with: 'skylark@gmail.com'
+        fill_in 'user_password', with: 'skylark1'
+        click_button 'LOG IN'
         expect(page).to have_content('Welcome back. You have successfully signed in.')
       end
 
@@ -36,13 +34,11 @@ RSpec.feature "Images", type: :feature, js:true do
         visit root_path
         expect(page).to have_content('Login')
         click_link('Login')
-        expect(page).to have_content('Log in')
-        fill_in 'user_email', with: 'blah@blah.com'
-        fill_in 'user_password', with: 'jhkjj'
+        fill_in 'user_email', with: 'skylark@gmail.com'
+        fill_in 'user_password', with: 'skylark2'
         click_button 'Log in'
         expect(page).to have_content('Invalid email or password.')
       end
-
     end
 
   end

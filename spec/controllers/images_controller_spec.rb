@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe ImagesController do
-  let(:user) { User.create(username: 'skylark', email: 'someone@gmail.com', password: 'something') }
+  let(:user) { User.create(username: 'skylark', email: 'someone@gmail.com', password: 'skylark1') }
   let(:file_to_upload) { fixture_file_upload('export.tiff', 'image/tiff') }
   before do
     sign_in user
@@ -31,8 +31,8 @@ RSpec.describe ImagesController do
       end
 
       it 'redirects to user profile path' do
-        # get :show, params
-        # expect(response).to redirect_to user_path
+        get :show, params
+        expect(response).to redirect_to user_path
       end
 
       it 'sets the flash message' do
