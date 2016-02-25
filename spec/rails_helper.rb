@@ -27,11 +27,11 @@ require 'devise'
 # If you are not using ActiveRecord, you can remove this line.
 ActiveRecord::Migration.maintain_test_schema!
 
-Capybara.javascript_driver = :webkit
+# Capybara.javascript_driver = :webkit
 
-Capybara::Webkit.configure do |config|
-  config.allow_unknown_urls
-end
+# Capybara::Webkit.configure do |config|
+#   config.allow_unknown_urls
+# end
 
 RSpec.configure do |config|
   config.include Devise::TestHelpers, type: :controller
