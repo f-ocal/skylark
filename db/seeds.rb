@@ -44,4 +44,12 @@ description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do e
     camera_type: "DJI Phantom"
     )
 
+  Image.create(
+    user_id: 1,
+    tileset_name: "King Fire, Eldorado National Fores",
+    map: "karlaking2.bjssl047",
+    date_taken: 2016-02-02,
+    description: description,
+    camera_type: "Landsat Image"
+    )
 
