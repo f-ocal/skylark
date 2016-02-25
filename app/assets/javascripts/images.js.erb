@@ -72,8 +72,32 @@ var addMarkerstoLayer = function(map, layer, image){
        var voteCount = image.upvotes
        var voteCountPTag = '<p class="sb-votecount">' + voteCount + '</p>'
 
+       var imageId = image.id
+       var voteUrl = '/images/' + image.id + '/like'
+
+       function upVoteForm(id, url){
+          var myForm = document.createElement('form');
+          myForm.setAttribute('action', url);
+          myForm.setAttribute('method', 'post');
+          var myInput = document.createElement('input');
+          myInput.setAttribute('type', 'hidden');
+          myInput.setAttribute('name', '_method');
+          myInput.setAttribute('value', 'put');
+          var submit = document.createElement('input');
+          submit.setAttribute('type', 'image');
+          submit.setAttribute('name', 'submit');
+          submit.setAttribute('src', 'https://s3.amazonaws.com/rapgenius/facebook-thumbs-up.png')
+          submit.setAttribute('width', '20');
+          submit.setAttribute('height', '20');
+          myForm.appendChild(myInput);
+          myForm.appendChild(submit);
+          $('#info').append(myForm);
+        };
+
+
        $('#info').empty();
        $('#info').append(tlNameH2Tag + usernamePTag + cameraTypePTag + descrPTag + voteCountPTag);
+       upVoteForm(imageId, voteUrl)
 
          //Toggle Sidebar
          $('.sidebar').show();
