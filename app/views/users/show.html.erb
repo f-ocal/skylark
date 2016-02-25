@@ -17,14 +17,18 @@
         <p>email: <%= @user.email %></p>
       </div>
     </div>
-    <div id='go-to-map'>
-      <p>Go to the Map</p>
-      <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
-    </div>
-    <div id='new-upload'>
-      <p>Upload new Map</p>
-      <span class="glyphicon glyphicon-upload" aria-hidden="true"></span>
-    </div>
+    <%= link_to images_path do %>
+      <div id='go-to-map'>
+        <p>Go to the Map</p>
+        <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+      </div>
+    <% end %>
+    <%= link_to new_image_path do %>
+      <div id='new-upload'>
+        <p>New Upload</p>
+        <span class="glyphicon glyphicon-upload" aria-hidden="true"></span>
+      </div>
+    <% end %>
   </div>
 
   <div class='col-md-9'>
@@ -51,20 +55,23 @@
           <p><%= image.date_taken %></p>
           <p class='bold'>Camera type</p>
           <p><%= image.camera_type %></p>
-          <a href="<%= edit_image_path(image) %>">
-            <span aria-hidden="true" class="glyphicon glyphicon-wrench"></span>
-          </a>
-          <%= link_to 'Delete item', image_path(image), method: :delete %>
-            <span aria-hidden="true" class="glyphicon glyphicon-trash"></span>
-          </a>          
+          <%= link_to 'Edit', edit_image_path(image) %> |
+          <%= link_to 'Delete', image_path(image), method: :delete %>
+          <div class='upvote-button'>
+            <%= link_to like_image_path(image), class: "like", method: :put do %>
+            <button type="button" class="btn btn-transparent">
+            <span class='glyphicon glyphicon-thumbs-up glyphicon-align-center'></span>
+            <span class='badge'><%= image.get_upvotes.size %></span>
+            </button>
+            <% end %>         
+          </div>
         </div>
-      </div>
       <% end %>
     </div>
   </div>
 </div>
 
-
+ <p> <%= link_to 'Upload another image', new_image_path %></p>
 
 <div class='container'>
   <% if !@user.images.empty? %>

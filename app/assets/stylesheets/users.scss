@@ -31,13 +31,12 @@
 .bold {
   font-weight: 700;
 }
-.username-email {
-  font-size: 20px;
+#username-email {
+  font-size: 15px;
   font-family: 'Lato', sans-serif;
-  font-weight: 200;
+  font-weight: 300;
   color: #000;
   margin-top: 20px;
-  padding-top: 10px;
 }
 #welcome-user {
   font-size: 60px;
@@ -57,6 +56,7 @@
   width: 150px;
 }
 .image-details {
+  color: #000;
   background-color: #eee;
   padding-top: 20px;
   padding-bottom: 20px;
@@ -100,8 +100,7 @@
   padding: 30px 0 30px 0;
   background-color: #363636;
 }
-.glyphicon {
-}
+
 
 
 /* user login page */
