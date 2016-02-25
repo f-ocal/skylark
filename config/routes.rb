@@ -10,11 +10,13 @@ Rails.application.routes.draw do
 
   resources :images do
     member do
+      get "like_form" => "images#like_form"
       put "like" => "images#upvote"
     end
   end
 
   resources :users, :only => [:show]
+
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

@@ -23,8 +23,20 @@ $('.sidebar').hide();
     //Opacity handle
     opacityHandle(layers);
 
+  $('body').on('click','.upvoter', function(e){
 
-});
+    var imageId = $(this).data('imageId');
+
+    $.ajax({
+      type: 'PUT',
+      url: '/images/' + imageId + '/like'
+    }).done(function(response){
+      $('#info .upvote-container').html(response)
+    })
+
+  });
+
+}); // end of doc ready
 
 
 
@@ -78,14 +90,28 @@ var addMarkerstoLayer = function(map, layer, image){
        var descr = image.description;
        var descrPTag = '<p class="sb-desc">' + descr + '</p>';
 
+       var voteCount = image.upvotes
+       var voteCountPTag = '<p class="sb-votecount">' + voteCount + '</p>'
+
+       var imageId = image.id
+       var voteUrl = '/images/' + image.id + '/like'
+
+
        $('#info').empty();
        $('#info').append(tlNameH2Tag + usernamePTag + cameraTypePTag + descrPTag);
 
+
+
+        $.ajax({
+          type: 'GET',
+          url: '/images/' + imageId + '/like_form'
+        }).done(function(response){
+          $('#info').append(response)
+        });
+
          //Toggle Sidebar
          $('.sidebar').show();
-        //  $('#close-sb').on('click', function(){
-        //   $('.sidebar').hide();
-        // });
+
 
          //Add and Remove marker on zoom
          map.on('zoomend', function(){
