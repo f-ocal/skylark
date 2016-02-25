@@ -3,7 +3,8 @@ require 'open-uri'
 
 class ImagesController < ApplicationController
 
-  before_action :authenticate_user!, only: [:new, :create]
+  before_action :authenticate_user!, only: [:new, :create, :upvote]
+  before_action :set_image, only: [:show, :edit, :update, :destroy, :upvote]
 
   def index
     @images = Image.all
@@ -12,13 +13,16 @@ class ImagesController < ApplicationController
         map: image.map,
         description: image.description,
         tileset_name: image.tileset_name,
-        camera_type: image.camera_type
+        camera_type: image.camera_type,
+        id: image.id,
+        upvotes: image.get_upvotes.size
       }
     end
   end
 
   def show
-    @image = Image.find(params[:id])
+    # deprecated for before_action
+    # @image = Image.find(params[:id])
   end
 
   def new
@@ -26,7 +30,8 @@ class ImagesController < ApplicationController
   end
 
   def edit
-    @image = Image.find(params[:id])
+    # deprecated for before_action
+    # @image = Image.find(params[:id])
   end
 
   def create
@@ -49,7 +54,8 @@ class ImagesController < ApplicationController
   end
 
   def update
-    @image  = Image.find(params[:id])
+    # deprecated for before_action
+    # @image = Image.find(params[:id])
     success = @image.update(image_params)
 
     if success
@@ -61,11 +67,21 @@ class ImagesController < ApplicationController
   end
 
   def destroy
-    image = Image.find(params[:id])
-    image.destroy
+    # deprecated for before_action
+    # @image = Image.find(params[:id])
+    @image.destroy
     flash[:error] = ["The image has been deleted!"]
     redirect_to user_path(current_user)
   end
+
+  def upvote
+    @image.liked_by current_user
+    # redirect or render?
+    # this redirect reloads the map - how to get back to sidebar view? Maybe this has to the a JS thing ...
+    redirect_to images_path
+    # should AJAX this!
+  end
+
 
   private
 

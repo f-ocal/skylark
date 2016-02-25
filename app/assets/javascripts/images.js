@@ -13,7 +13,8 @@ $('.sidebar').hide();
   //Turn gon image into layer
   var layers = []
   gon.images.forEach ( function (image) {
-    var layer = L.mapbox.tileLayer(image.map, {format: 'png128' });
+
+    var layer = L.mapbox.tileLayer(image.map, {format: 'png128'});
     addMarkerstoLayer(mapGeo, layer, image);
     layers.push(layer)
     return layers;
@@ -43,7 +44,7 @@ var addMarkerstoLayer = function(map, layer, image){
       var marker = L.marker([(marker_long), marker_lat], {
         icon: L.mapbox.marker.icon({
           'marker-size': 'large',
-          'marker-color': '#cc33ff',
+          'marker-color': '#ED2152',
           'marker-symbol': 'marker-stroked',
         })
       });
@@ -56,8 +57,16 @@ var addMarkerstoLayer = function(map, layer, image){
   }
 
   var displayImageInfoOnClick = function(map, marker, image){
+    var zoom_level = 15
+    console.log(image.camera_type)
+    if (image.camera_type === "DJI Phantom 3 Advanced") {
+      zoom_level = 18;
+    } else {
+      zoom_level = 12
+    }
+
     marker.on('click', function(e){
-      map.setView([e.latlng.lat, e.latlng.lng], 14)
+      map.setView([e.latlng.lat, e.latlng.lng], zoom_level)
 
        //Empty and Fill Info div with image information
        var tilesetName = image.tileset_name
@@ -74,9 +83,9 @@ var addMarkerstoLayer = function(map, layer, image){
 
          //Toggle Sidebar
          $('.sidebar').show();
-         $('#close-sb').on('click', function(){
-          $('.sidebar').hide();
-        });
+        //  $('#close-sb').on('click', function(){
+        //   $('.sidebar').hide();
+        // });
 
          //Add and Remove marker on zoom
          map.on('zoomend', function(){

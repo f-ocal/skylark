@@ -8,7 +8,11 @@ Rails.application.routes.draw do
   # You can have the root of your site routed with "root"
   root 'welcome#index'
 
-  resources :images
+  resources :images do
+    member do
+      put "like" => "images#upvote"
+    end
+  end
 
   resources :users, :only => [:show]
 
