@@ -45,9 +45,6 @@
   color: #363636;
   margin-bottom: 30px;
 }
-.uploaded-image {
-  border-bottom: 1px solid #ddd;
-}
 .image-avatar {
   width: 200px;
 }
@@ -77,7 +74,6 @@
   margin-top: 40px;
 }
 .individual-image {
-  border-bottom: 1px solid #ddd;
   padding: 20px;
 }
 .tileset-name {
@@ -99,6 +95,9 @@
   margin-top: 40px;
   padding: 30px 0 30px 0;
   background-color: #363636;
+}
+.upvote-button {
+  padding-top: 10px;
 }
 
 
