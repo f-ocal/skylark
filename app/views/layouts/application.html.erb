@@ -55,12 +55,6 @@
     </nav>
   </div>
 
-  <!-- <div id="flash-box">
-  <% flash.each do |name, msg| %>
-  	<%= content_tag :div, msg, class: name %>
-  <% end %> -->
-  <!-- </div> -->
-
   <% if flash[:error] %>
     <div class="alert alert-danger">
       <% flash[:error].each do |error| %>
@@ -92,7 +86,12 @@
 
     <%if flash[:alert] %>
       <div class="alert alert-warning">
-        <p><%= flash[:alert] %></p>
+        <% flash[:alert].each do |alert| %>
+          <p>
+            <%= alert %>
+          </p>
+        <% end %>
+      </div>
       </div>
     <% end %>
 
