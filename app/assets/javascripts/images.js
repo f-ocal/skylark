@@ -22,8 +22,20 @@ $('.sidebar').hide();
     //Opacity handle
     opacityHandle(layers);
 
+  $('body').on('click','.upvoter', function(e){
 
-});
+    var imageId = $(this).data('imageId');
+
+    $.ajax({
+      type: 'PUT',
+      url: '/images/' + imageId + '/like'
+    }).done(function(response){
+      $('#info .upvote-container').html(response)
+    })
+
+  });
+
+}); // end of doc ready
 
 
 
@@ -75,35 +87,22 @@ var addMarkerstoLayer = function(map, layer, image){
        var imageId = image.id
        var voteUrl = '/images/' + image.id + '/like'
 
-       function upVoteForm(id, url){
-          var myForm = document.createElement('form');
-          myForm.setAttribute('action', url);
-          myForm.setAttribute('method', 'post');
-          var myInput = document.createElement('input');
-          myInput.setAttribute('type', 'hidden');
-          myInput.setAttribute('name', '_method');
-          myInput.setAttribute('value', 'put');
-          var submit = document.createElement('input');
-          submit.setAttribute('type', 'image');
-          submit.setAttribute('name', 'submit');
-          submit.setAttribute('src', 'https://s3.amazonaws.com/rapgenius/facebook-thumbs-up.png')
-          submit.setAttribute('width', '20');
-          submit.setAttribute('height', '20');
-          myForm.appendChild(myInput);
-          myForm.appendChild(submit);
-          $('#info').append(myForm);
-        };
-
 
        $('#info').empty();
-       $('#info').append(tlNameH2Tag + usernamePTag + cameraTypePTag + descrPTag + voteCountPTag);
-       upVoteForm(imageId, voteUrl)
+       $('#info').append(tlNameH2Tag + usernamePTag + cameraTypePTag + descrPTag);
+
+
+
+        $.ajax({
+          type: 'GET',
+          url: '/images/' + imageId + '/like_form'
+        }).done(function(response){
+          $('#info').append(response)
+        });
 
          //Toggle Sidebar
          $('.sidebar').show();
-        //  $('#close-sb').on('click', function(){
-        //   $('.sidebar').hide();
-        // });
+
 
          //Add and Remove marker on zoom
          map.on('zoomend', function(){
