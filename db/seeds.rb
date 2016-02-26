@@ -21,7 +21,7 @@ description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do e
   Image.create(
     user_id: 1,
     tileset_name: "Heron's Head Park",
-    map: "whelpley.4m1jc8ad",
+    map: "whelpley.2s7rgbmm",
     date_taken: date,
     description: "Photo taken by the Skylark team in Bay View, Hunters Point. It was a sunny beautiful day, and we learned how to run DroneDeploy software for image registration and mosaiking.",
     camera_type: "DJI Phantom 3 Advanced"
@@ -41,7 +41,7 @@ description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do e
     tileset_name: "Japanese Garden",
     map: "karlaking2.7mbdrc0w",
     date_taken: date,
-    description: "754 Band Combination",
+    description: "754 Band Combination. Image visualization and composition created in Google Earth Engine. This is a sample image for the Skylark Application.",
     camera_type: "Landsat 8 ETM"
     )
 
@@ -50,16 +50,16 @@ description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do e
     tileset_name: "Paris, France",
     map: "karlaking2.3s1aq4mg",
     date_taken: date,
-    description: "652 Band Combination",
+    description: "652 Band Combination. Image visualization and composition created in Google Earth Engine. This is a sample image for the Skylark Application.",
     camera_type: "Landsat 8 ETM"
     )
 
   Image.create(
-    user_id: 2,
+    user_id: 1,
     tileset_name: "North Korea",
     map: "karlaking2.9vlux58h",
     date_taken: date,
-    description: "543 Band Combination",
+    description: "543 Band Combination. Image visualization and composition created in Google Earth Engine. This is a sample image for the Skylark Application.",
     camera_type: "Landsat 8 ETM"
     )
 
@@ -69,26 +69,20 @@ description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do e
     tileset_name: "Turkey",
     map: "karlaking2.1ai436u8",
     date_taken: date,
-    description: "564 Band Combination",
+    description: "564 Band Combination. Image visualization and composition created in Google Earth Engine. This is a sample image for the Skylark Application.",
     camera_type: "Landsat 8 ETM"
     )
 
-  Image.create(
-    user_id: 2,
-    tileset_name: "",
-    map: "",
-    date_taken: date,
-    description: " Band Combination",
-    camera_type: "Landsat 8 ETM"
-    )
 
   Image.create(
     user_id: 2,
     tileset_name: "Upper Peninsula Michigan",
     map: "karlaking2.dm8mbfy2",
     date_taken: date,
-    description: "Color Band Combination",
+    description: "Color Band Combination. Image visualization and composition created in Google Earth Engine. This is a sample image for the Skylark Application.",
     camera_type: "Landsat 8 ETM"
     )
+
+
 
 
