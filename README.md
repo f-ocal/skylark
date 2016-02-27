@@ -1,12 +1,5 @@
 #Skylark
 
-Master:
-![badge](https://travis-ci.org/f-ocal/Skylark.svg?branch=master)
-
-Development:
-![badge](https://travis-ci.org/f-ocal/Skylark.svg?branch=development)
-
-
 ##What is it?
 Skylark is an application to share your georeferenced satellite and aerial imagery. It hosts a web map service that allows a registered user to upload and overlay their images for anyone to view. Images must be GeoTiff format and be less than 1GB in size. If logged in, a user can up-vote images they like.
 
@@ -47,6 +40,16 @@ This app was created as a final project at Dev BootCamp over one week during Feb
 8. http://localhost:3000/
 
 ### Deployed @ http://skylarkearth.herokuapp.com/
+
+
+
+
+
+Master:
+![badge](https://travis-ci.org/f-ocal/Skylark.svg?branch=master)
+
+Development:
+![badge](https://travis-ci.org/f-ocal/Skylark.svg?branch=development)
 
 
 
