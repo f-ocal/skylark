@@ -79,10 +79,18 @@ description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do e
     tileset_name: "Upper Peninsula Michigan",
     map: "karlaking2.dm8mbfy2",
     date_taken: date,
-    description: "Color Band Combination. Image visualization and composition created in Google Earth Engine. This is a sample image for the Skylark Application.",
+    description: "True color image composite. This image was downloaded as a sample from MapBox.",
     camera_type: "Landsat 8 ETM"
     )
 
+  Image.create(
+    user_id: 2,
+    tileset_name: "London,England",
+    map: "karlaking2.01li9tfo",
+    date_taken: date,
+    description: "754 Band Combination. This image was downloaded as a sample from MapBox.",
+    camera_type: "Landsat 8 ETM"
+    )
 
 
 
