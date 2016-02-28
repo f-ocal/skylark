@@ -1,3 +1,139 @@
 // Place all the styles related to the users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+/* user profile page */
+#user-box {
+  padding-top: 30px;
+}
+#user-profile-picture {
+    width: 200px;
+    height: 200px;
+}
+#user-info{
+  background-color: #eee;
+  padding: 30px 20px 30px 20px;
+  font-family: 'Lato';
+  box-shadow: 1px 1px 1px #888888;
+  width: 200px;
+}
+.headers {
+  font-family: 'Lato';
+  font-size: 30px;
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 15px;
+}
+#bold {
+  font-weight: 700;
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 10px;
+}
+.bold {
+  font-weight: 700;
+}
+#username-email {
+  font-size: 15px;
+  font-family: 'Lato', sans-serif;
+  font-weight: 300;
+  color: #000;
+  margin-top: 20px;
+}
+#welcome-user {
+  font-size: 60px;
+  font-family: 'Lato', sans-serif;
+  font-weight: 300;
+  color: #363636;
+  margin-bottom: 30px;
+}
+.image-avatar {
+  width: 200px;
+}
+.image-map {
+  padding-top: 50px;
+  width: 150px;
+}
+.image-details {
+  color: #000;
+  background-color: #eee;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  margin-left: 30px;
+}
+#banner-image {
+  background-color: #2A2F36;
+  position: absolute;
+  z-index: -1;
+  width: 100%;
+  height: 120px;
+}
+#banner-image img {
+  width: 100%;
+  height: 120px;
+}
+.uploaded-images {
+  margin-top: 40px;
+}
+.individual-image {
+  padding: 20px;
+}
+.tileset-name {
+  padding-bottom: 10px;
+  font-family: 'Lato', sans-serif;
+}
+#go-to-map {
+  font-size: 15px;
+  color: #fff;
+  text-align: center;
+  margin-top: 50px;
+  padding: 30px 0 30px 0;
+  background-color: #363636;
+}
+#new-upload {
+  font-size: 15px;
+  color: #fff;
+  text-align: center;
+  margin-top: 40px;
+  padding: 30px 0 30px 0;
+  background-color: #363636;
+}
+.upvote-button {
+  padding-top: 10px;
+}
+
+
+
+/* user login page */
+.login-page {
+	background-color: #eee;
+}
+.form {
+	background-color: #fff;
+	margin-top: 50px;
+	padding: 10px 0 40px 0;
+}
+
+#user_username, #user_email, #user_password, #user_password_confirmation {
+  font-family: "Roboto", sans-serif;
+  outline: 0;
+  background: #f2f2f2;
+  width: 100%;
+  border: 0;
+  margin: 0 0 15px;
+  padding: 15px;
+  box-sizing: border-box;
+    font-size: 14px;
+}
+#login_submit {
+  font-family: "Roboto", sans-serif;
+  text-transform: uppercase;
+  outline: 0;
+  background: #d2cece;
+  width: 100%;
+  border: 0;
+  padding: 15px;
+  color: #fff;
+  font-size: 14px;
+  -webkit-transition: all 0.3 ease;
+  transition: all 0.3 ease;
+  cursor: pointer;
+}

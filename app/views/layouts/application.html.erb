@@ -2,39 +2,45 @@
 <html>
 <head>
   <title>Skylark</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= stylesheet_link_tag    'application', media: 'all'%>
+  <%= javascript_include_tag 'application' %>
   <%= csrf_meta_tags %>
   <%= include_gon %>
   <script src="http://code.jquery.com/jquery-1.12.0.min.js"></script>
   <script src='https://api.tiles.mapbox.com/mapbox.js/v2.2.4/mapbox.js'></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
   <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,800,800italic' rel='stylesheet' type='text/css'>
   <link href='https://fonts.googleapis.com/css?family=Lato:400,300,200,100,100italic,300italic,400italic' rel='stylesheet' type='text/css'>
   <link href='https://api.tiles.mapbox.com/mapbox.js/v2.2.4/mapbox.css' rel='stylesheet' />
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+
 </head>
+
 <body>
   <div class='navigation'>
     <nav>
-      <p class="main-title navbar-left"><a href="/">SKYLARK</a></p>
+      <p class="main-title navbar-left">
+        <img id="main-logo" src="<%= asset_path('skylark_logo_updated.png') %>"/><a href="/">SKYLARK</a>
+      </p>
       <ul class="nav navbar-nav navbar-right">
           <li>
-            <%= link_to 'View Images', images_path %>
+            <%= link_to 'Map', images_path %>
           </li>
         <% if user_signed_in? %>
         <!-- first one is temporary -->
-<!--           <li id='nav-welcome'>
+            <!-- <li id='nav-welcome'>
             Welcome, <%= current_user.username %> !
           </li> -->
           <li>
+            <%= link_to 'Upload Image', new_image_path %>
+          </li>
+          <li>
+            <%= link_to('My Profile', user_path(current_user)) %>
+          </li>
+          <li>
             <%= link_to('Log Out', destroy_user_session_path, :method => :delete) %>
           </li>
-          <li>
-            <%= link_to('View Profile', user_path(current_user)) %>
-          </li>
-          <li>
-            <%= link_to 'Upload', new_image_path %>
-          </li>
+
         <% else %>
           <li>
             <%= link_to 'Register', new_user_registration_path %>
@@ -43,46 +49,56 @@
             <%= link_to 'Login', new_user_session_path %>
           </li>
         <% end %>
+
       </ul>
     </nav>
   </div>
 
-  <div id="flash-box">
-  <% flash.each do |name, msg| %>
-  	<%= content_tag :div, msg, class: name %>
+  <% if flash[:error] %>
+    <div class="alert alert-danger">
+      <% flash[:error].each do |error| %>
+        <p>
+          <%= error %>
+        </p>
+      <% end %>
+    </div>
   <% end %>
-  </div>
+
+  <% if flash[:success] %>
+    <div class="alert alert-success alert-dismissible" role='alert'>
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+      <% flash[:success].each do |success| %>
+        <p>
+          <%= success %>
+        </p>
+      <% end %>
+    </div>
+  <% end %>
+
+    <%if flash[:notice] %>
+      <div class="alert alert-info">
+        <%= flash[:notice] %>
+      </div>
+    <% end %>
+
+    <%if flash[:alert] %>
+      <div class="alert alert-warning">
+        <% if flash[:alert].is_a? Array %>
+          <% flash[:alert].each do |alert| %>
+            <p>
+              <%= alert %>
+            </p>
+          <% end %>
+        <% else %>
+          <p> <%= flash[:alert] %> </p>
+        <% end %>
+      </div>
+      </div>
+    <% end %>
 
 <%= yield %>
 
-<script>
-	L.mapbox.accessToken = 'pk.eyJ1Ijoic2hhd25zcGVhcnMiLCJhIjoiY2lrdDJ2ZHI1MDAyNHZvbTNhZ3B2bm41MCJ9.WdbcbGGIoMKx9B3sC9ODuQ';
-	var mapGeo = L.mapbox.map('map_geo', 'mapbox.satellite').setView([27.433,-1.700], 3);
-
-   gon.images.forEach ( function (image) {
-    var layer = L.mapbox.tileLayer(image.map);
-    console.log(image.map);
-    // var layer = L.mapbox.featureLayer('karlaking2.3a56but5')
-       layer.on('ready', function() {
-        var tileJSON = layer.getTileJSON();
-        var marker_lat = tileJSON.bounds[0]
-        var marker_long = tileJSON.bounds[1]
-      var marker = L.marker([(marker_long), marker_lat], {
-        icon: L.mapbox.marker.icon({
-          'marker-size': 'large',
-          'marker-color': '#cc33ff',
-          'marker-symbol': 'marker-stroked'
-        })
-      });
-    layer.addTo(mapGeo)
-    marker.addTo(mapGeo)
-    marker.on('click', function(e){
-      mapGeo.setView([e.latlng.lat, e.latlng.lng], 11)
-    })
-  });
-
- });
-
-</script>
 </body>
 </html>

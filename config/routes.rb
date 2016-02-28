@@ -8,9 +8,15 @@ Rails.application.routes.draw do
   # You can have the root of your site routed with "root"
   root 'welcome#index'
 
-  resources :images
+  resources :images do
+    member do
+      get "like_form" => "images#like_form"
+      put "like" => "images#upvote"
+    end
+  end
 
   resources :users, :only => [:show]
+
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

@@ -1,21 +1,76 @@
-<div class='row col-md-12'>
-  <div class='user-info col-md-4 col-md-offset-4'>
-    <h1 id='welcome-user'>Welcome, <%= @user.username %>!</h1>
-    <img class="user-profile-picture" src="<%= asset_path('karlaking.jpg') %>"/>
-    <div class='username-email'>
-      <p>username: <%= @user.username %></p>
-      <p>email: <%= @user.email %></p>
-    </div>
-  </div>
+<div id='banner-image'>
+  <img id="user-profile-picture" src="<%= asset_path('banner_image') %>"/>
 </div>
-
-<div class='container'>
-  <div class='row col-md-12'>
-    <h2> Your uploaded images:</h2>
+<div class='row col-md-12'>
+  </div>
+  <div class='col-md-2 col-md-offset-1' id='user-box'>
+    <div>
+      <img id="user-profile-picture" src="<%= asset_path('karlaking.jpg') %>"/>
+    </div>
+    <div id='user-info'>
+      <p><span id='bold'>USER INFO:</span></p>
+      <div id='username-email'>
+        <p>username: <%= @user.username %></p>
+        <p>email: <%= @user.email %></p>
+      </div>
+    </div>
+    <%= link_to images_path do %>
+      <div id='go-to-map'>
+        <p>Go to the Map</p>
+        <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+      </div>
+    <% end %>
+    <%= link_to new_image_path do %>
+      <div id='new-upload'>
+        <p>New Upload</p>
+        <span class="glyphicon glyphicon-upload" aria-hidden="true"></span>
+      </div>
+    <% end %>
   </div>
 
-  <% @user.images.each do |image| %>
-    <%= render partial: "images/show", layout: false, locals: {image: image} %>
-  <% end %>
+  <div class='col-md-9'>
+    <div class='col-md-offset-1'>
+      <h1 id='welcome-user'>Welcome, <%= @user.username %>!</h1>
+    </div>
+    <div class='uploaded-images'>
+      <div class='col-md-offset-1'>
+        <h1 class='headers'>Uploaded Images</h1>
+      </div>
+      <% if !@user.images.empty? %>
+        <% @user.images.each do |image| %>
+        <div class='individual-image col-md-12'>
+          <h1 class='tileset-name col-md-offset-1'><%= image.tileset_name %></h1>
+          <div class='col-md-3 col-md-offset-1'>
+            <img class="image-map" src="<%= asset_path('map_vector_logo.png') %>"/>
+          </div>
 
+          <div class='col-md-4'>
+            <p>Description: <%= image.description %></p>
+          </div>
+
+          <div class='image-details col-md-3'>
+            <p class='bold'>Date taken</p>
+            <p><%= image.date_taken %></p>
+            <p class='bold'>Camera type</p>
+            <p><%= image.camera_type %></p>
+            <%= link_to 'Edit', edit_image_path(image) %> |
+            <%= link_to 'Delete', image_path(image), method: :delete %>
+            <div class='upvote-button'>
+              <%= link_to like_image_path(image), class: "like", method: :put do %>
+              <button type="button" class="btn btn-transparent">
+              <span class='glyphicon glyphicon-thumbs-up glyphicon-align-center'></span>
+              <span class='badge'><%= image.get_upvotes.size %></span>
+              </button>
+              <% end %>         
+            </div>
+          </div>
+        <% end %>
+      </div>
+    <% else %>
+      <div class='row col-md-12'>
+        <h2> You don't have any images uploaded!</h2>
+        <p> <%= link_to 'Why not add some images, hmm?', new_image_path %></p>
+      </div>
+    <% end %>
+  </div>
 </div>

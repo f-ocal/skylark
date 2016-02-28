@@ -2,6 +2,8 @@ class User < ActiveRecord::Base
 
   has_many :images
 
+  acts_as_voter
+
   validates :username, :email, presence: true
 
   # Include default devise modules. Others available are:
