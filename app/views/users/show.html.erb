@@ -55,13 +55,17 @@
             <p><%= image.camera_type %></p>
             <%= link_to 'Edit', edit_image_path(image) %> |
             <%= link_to 'Delete', image_path(image), method: :delete %>
-            <div class='upvote-button'>
+<!--             <div class='upvote-button'>
               <%= link_to like_image_path(image), class: "like", method: :put do %>
               <button type="button" class="btn btn-transparent">
               <span class='glyphicon glyphicon-thumbs-up glyphicon-align-center'></span>
               <span class='badge'><%= image.get_upvotes.size %></span>
               </button>
               <% end %>         
+            </div> -->
+            <br>
+            <div>
+              <p>Likes: <%= image.get_upvotes.size %></p>
             </div>
           </div>
         <% end %>
