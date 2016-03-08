@@ -53,6 +53,7 @@
             <p><%= image.date_taken %></p>
             <p class='bold'>Camera type</p>
             <p><%= image.camera_type %></p>
+            <p>Likes: <%= image.get_upvotes.size %></p>
             <%= link_to 'Edit', edit_image_path(image) %> |
             <%= link_to 'Delete', image_path(image), method: :delete %>
 <!--             <div class='upvote-button'>
@@ -63,10 +64,7 @@
               </button>
               <% end %>         
             </div> -->
-            <br>
-            <div>
-              <p>Likes: <%= image.get_upvotes.size %></p>
-            </div>
+
           </div>
         <% end %>
       </div>
